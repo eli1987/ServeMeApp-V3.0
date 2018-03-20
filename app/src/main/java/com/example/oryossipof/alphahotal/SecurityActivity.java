@@ -1,12 +1,14 @@
 package com.example.oryossipof.alphahotal;
 
 import android.app.Activity;
+import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -17,17 +19,28 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Locale;
+
 public class SecurityActivity extends Activity {
     private String department = "Security";
     private ListView mListView ;
     private Context context;
     private BroadcastReceiver receiver;
     private String roomNum;
-    private String telNumber ="035433333";
+   // private String telNumber ="035433333";
     private ProgressDialog progress ;
     private int [] drawable = {R.drawable.safe,R.drawable.bellboy,R.drawable.opendor,R.drawable.firstaid,R.drawable.calll};
     String security[];
     String securityDesc[] = {"Open Safe", "BellBoy", "Open Door", "First Aid", "Call"};
+
+    private AASync AASync;
+    private BroadcastReceiver serviceReceiver;
+    ArrayList<HotelService> securityResult = new ArrayList<>();
+    ArrayList<HotelService> newService =new ArrayList<>();
+
+
+
 
 
     @Override
@@ -86,8 +99,32 @@ public class SecurityActivity extends Activity {
                     switch(index)
                     {
                         case 4:
+                            String type = "getService";
+                            String CurrentLang = Locale.getDefault().getLanguage();
                             // startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("035433333")));
-                            CallService.callPhoneNumber(SecurityActivity.this,telNumber);
+                            AASync = new AASync(SecurityActivity.this);
+                            AASync.execute(type,CurrentLang);
+                            registerReceiver(serviceReceiver =new BroadcastReceiver() {
+                                @Override
+                                public void onReceive(Context context, Intent intent) {
+                                    securityResult = (ArrayList<HotelService>)intent.getSerializableExtra("result");
+                                    Log.e("result",securityResult.size()+"");
+                                    newService = new ArrayList<HotelService>();
+                                    for(int i=0;i <securityResult.size();i++)
+                                    {
+                                        newService.add(securityResult.get(i));
+                                    }
+                                    //unregisterReceiver(receiver);
+                                    CallService.callPhoneNumber(SecurityActivity.this,newService.get(0).securityNumber);
+
+                                }
+
+
+                            }, new IntentFilter("serviceIntent"));
+
+
+
+
 
                             break;
 

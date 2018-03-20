@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.format.DateUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -28,6 +29,7 @@ import java.util.Locale;
 public class BookTaxiActivity extends AppCompatActivity {
     EditText edittext;
     Calendar myCalendar ;
+    Calendar mcurrentTime;
     private Button bookTexiBT;
     private DatePickerDialog picker;
     private  String roomNum;
@@ -39,7 +41,10 @@ public class BookTaxiActivity extends AppCompatActivity {
     private String dest = "";
     private String pass = "";
     private Spinner spinner;
+    private EditText Edit_Time ;
     private int valid =0 ;
+    private int _selectedHour ;
+    private int _min ;
     private String[] destList = {"Tel Aviv", "Haifa" , "Ben Gurion Airport", "Jerusalem", "Bat Yam", "Eilat", "Not Specified destination"};
 
     @Override
@@ -78,6 +83,7 @@ public class BookTaxiActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stu
+                valid = 0;
                 picker = new DatePickerDialog(BookTaxiActivity.this, date, myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                         myCalendar.get(Calendar.DAY_OF_MONTH));
@@ -89,15 +95,15 @@ public class BookTaxiActivity extends AppCompatActivity {
             }
         });
 
-        final EditText Edit_Time = (EditText) findViewById(R.id.time_view_edit);
+       Edit_Time = (EditText) findViewById(R.id.time_view_edit);
 
         Edit_Time.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                Calendar mcurrentTime = Calendar.getInstance();
-                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+                mcurrentTime = Calendar.getInstance();
+                final int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
                 int minute = mcurrentTime.get(Calendar.MINUTE);
 
                 TimePickerDialog mTimePicker;
@@ -105,17 +111,35 @@ public class BookTaxiActivity extends AppCompatActivity {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
 
-                            Edit_Time.setText(selectedHour + ":" + selectedMinute);
-                            time = Edit_Time.getText().toString();
-                            valid++;
 
+                          _selectedHour = selectedHour;
+                          _min = selectedMinute;
+
+                            if (myCalendar.get(Calendar.DATE) == mcurrentTime.get(Calendar.DATE)) // is today?
+                            {
+                                if((Calendar.getInstance().get(Calendar.HOUR_OF_DAY)) >  selectedHour)
+                                {}
+                                else if((Calendar.getInstance().get(Calendar.HOUR_OF_DAY)) == selectedHour )
+                                {
+                                    if((Calendar.getInstance().get(Calendar.MINUTE) > selectedMinute))
+                                    {}
+                                    else
+                                        setTextTimeAndValid();
+                                }
+                                else
+                                    setTextTimeAndValid();
+                            }
+                            else
+                                setTextTimeAndValid();
                     }
-                    Calendar mcurrentTime = Calendar.getInstance();
+
+
                 }, hour, minute, true);
                 mTimePicker.setTitle(getResources().getString(R.string.select_time_str)); // add to strings  for all lang
                 mTimePicker.show();
 
             }
+
         });
 
         //set spinner
@@ -208,6 +232,13 @@ public class BookTaxiActivity extends AppCompatActivity {
 
     }
 
+    private void setTextTimeAndValid() {
+
+        Edit_Time.setText(_selectedHour + ":" + _min);
+        time = Edit_Time.getText().toString();
+        valid++;
+    }
+
     private void initializeSpinner() {
 
         spinner = (Spinner) findViewById(R.id.spinner_ip);
@@ -226,6 +257,7 @@ public class BookTaxiActivity extends AppCompatActivity {
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(dataAdapter);
     }
+
 
     private void updateLabel() {
 

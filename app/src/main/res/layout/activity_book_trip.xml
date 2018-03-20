@@ -83,29 +83,10 @@
         android:focusable="false"
         android:textColorHint="#000"/>
 
-    <TextView
-        android:id="@+id/TimeTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/activity_time_str"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#000"
-        android:textSize="22sp"
-        android:typeface="monospace" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/time_view_edit"
-        android:hint="20:00"
-        android:text="20:00"
-        android:editable="false"
-        android:focusable="false"
-        android:textColorHint="#fff"
-        />
 
 
     <Button
+        android:layout_marginTop="120dp"
         android:id="@+id/ordertrip_button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

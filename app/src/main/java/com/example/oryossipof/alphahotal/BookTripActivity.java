@@ -87,12 +87,13 @@ public class BookTripActivity extends AppCompatActivity {
                         myCalendar.get(Calendar.DAY_OF_MONTH));
 
                 picker.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
-                valid++;
+               // valid++;
                 picker.show();
 
             }
         });
 
+        /*
         final EditText Edit_Time = (EditText) findViewById(R.id.time_view_edit);
 
         Edit_Time.setOnClickListener(new View.OnClickListener() {
@@ -121,7 +122,7 @@ public class BookTripActivity extends AppCompatActivity {
 
             }
         });
-
+*/
         //set spinner
         final Spinner spinner = (Spinner) findViewById(R.id.spinner_ip);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -157,15 +158,16 @@ public class BookTripActivity extends AppCompatActivity {
         bookTripBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if (edittext.getText().length() == 0 || valid <2)
+             //   if (edittext.getText().length() == 0 || valid <2)
+                if (edittext.getText().length() == 0)
                 {
                     Toast.makeText(BookTripActivity.this, getResources().getString(R.string.empty_date_str), Toast.LENGTH_SHORT).show();
                     return;
                 }
-                time = Edit_Time.getText().toString();
+                //time = Edit_Time.getText().toString();
                 BackgroundWorker bg = new BackgroundWorker(BookTripActivity.this);
-                des = edittext.getText().toString() + " "+ time + " " + destList[spinner.getSelectedItemPosition()] + ", " + pass + " Passengers";
+             //   des = edittext.getText().toString() + " "+ time + " " + destList[spinner.getSelectedItemPosition()] + ", " + pass + " Passengers";
+                des = edittext.getText().toString() + " " + destList[spinner.getSelectedItemPosition()] + ", " + pass + " Passengers";
                 bg.execute("insertNewRequest",roomNum,department,"Order Trip",des);
                 progress.setMessage(getResources().getString(R.string.Delivring_request_str));
                 progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);

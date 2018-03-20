@@ -2,10 +2,13 @@ package com.example.oryossipof.alphahotal;
 
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -15,17 +18,24 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Locale;
+
 public class InformationActivity extends Activity {
 
-    public final String WEATHER_ADDRESS = "https://weather.com/weather/5day/l/ISXX0026:1:IS";
-    public final String SHABBAT_ADDRESS = "http://www.chabad.org/calendar/candleLighting_cdo/locationId/531/locationType/1/jewish/Candle-Lighting.htm";
-   public final String FLIGHTS_ADDRESS = "http://www.iaa.gov.il/en-us/airports/bengurion/pages/onlineflights.aspx";
-    public final String MAPS_ADDRESS = "https://www.google.com/maps/place/%D7%94%D7%99%D7%A8%D7%A7%D7%95%D7%9F+250,+%D7%AA%D7%9C+%D7%90%D7%91%D7%99%D7%91+%D7%99%D7%A4%D7%95%E2%80%AD/@32.0903647,34.7810838,16.5z/data=!4m5!3m4!1s0x151d4c7569b3a659:0x12b99dadb2b2c4ba!8m2!3d32.0921792!4d34.7731877";
+    public  String WEATHER_ADDRESS = "https://weather.com/weather/5day/l/ISXX0026:1:IS";
+    public  String SHABBAT_ADDRESS = "http://www.chabad.org/calendar/candleLighting_cdo/locationId/531/locationType/1/jewish/Candle-Lighting.htm";
+   public  String FLIGHTS_ADDRESS = "http://www.iaa.gov.il/en-us/airports/bengurion/pages/onlineflights.aspx";
+    public  String MAPS_ADDRESS = "https://www.google.com/maps/place/%D7%94%D7%99%D7%A8%D7%A7%D7%95%D7%9F+250,+%D7%AA%D7%9C+%D7%90%D7%91%D7%99%D7%91+%D7%99%D7%A4%D7%95%E2%80%AD/@32.0903647,34.7810838,16.5z/data=!4m5!3m4!1s0x151d4c7569b3a659:0x12b99dadb2b2c4ba!8m2!3d32.0921792!4d34.7731877";
     private ListView mListView ;
     private Context context;
     private int [] drawableName= {R.drawable.weather,R.drawable.maps,R.drawable.flight,R.drawable.shabb2,R.drawable.din,R.drawable.pre,R.drawable.pool};
     private String infoDesc[] = {"Weather","Maps","Flight Times","Shabbat Hours ","Dinning Hours","Activities","Pool hours"};
     private String info[];
+    private AASync AASync;
+    private BroadcastReceiver serviceReceiver;
+    ArrayList<HotelService> infoResult = new ArrayList<>();
+    ArrayList<HotelService> newService =new ArrayList<>();
 
 
 
@@ -42,6 +52,31 @@ public class InformationActivity extends Activity {
         final CutomAdapter2 adapter = new CutomAdapter2();
         mListView.setAdapter(adapter);
         context=this;
+
+        String type = "getService";
+        String CurrentLang = Locale.getDefault().getLanguage();
+        // startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("035433333")));
+        AASync = new AASync(InformationActivity.this);
+        AASync.execute(type,CurrentLang);
+        registerReceiver(serviceReceiver =new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                infoResult = (ArrayList<HotelService>)intent.getSerializableExtra("result");
+                Log.e("result",infoResult.size()+"");
+                newService = new ArrayList<HotelService>();
+                for(int i=0;i <infoResult.size();i++)
+                {
+                    WEATHER_ADDRESS = infoResult.get(i).weather_url;
+                    MAPS_ADDRESS = infoResult.get(i).weather_url;
+                    FLIGHTS_ADDRESS = infoResult.get(i).weather_url;
+                    SHABBAT_ADDRESS = infoResult.get(i).weather_url;
+                }
+                //unregisterReceiver(receiver);
+
+            }
+
+
+        }, new IntentFilter("serviceIntent"));
 
 
     }
@@ -81,6 +116,7 @@ public class InformationActivity extends Activity {
                     switch(index)
                     {
                         case 0:     //weather
+
                             intent = new Intent(Intent.ACTION_VIEW, Uri.parse(WEATHER_ADDRESS));
                             startActivity(intent);
                             break;

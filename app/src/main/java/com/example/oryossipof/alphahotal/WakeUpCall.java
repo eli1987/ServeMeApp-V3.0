@@ -26,6 +26,7 @@ public class WakeUpCall extends AppCompatActivity {
     private EditText edittext;
     private Calendar myCalendar ;
     private Button wakeupBT;
+    Calendar mcurrentTime;
     private DatePickerDialog picker;
     private  String roomNum;
     private ProgressDialog progress ;
@@ -34,6 +35,9 @@ public class WakeUpCall extends AppCompatActivity {
     private String time="";
     private String des="";
     private int valid =0 ;
+    private int _selectedHour ;
+    private int _min ;
+    private EditText Edit_Time ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +75,7 @@ public class WakeUpCall extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stu
+                valid = 0 ;
                 picker = new DatePickerDialog(WakeUpCall.this, date, myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                         myCalendar.get(Calendar.DAY_OF_MONTH));
@@ -82,15 +87,15 @@ public class WakeUpCall extends AppCompatActivity {
             }
         });
 
-        final EditText Edit_Time = (EditText) findViewById(R.id.time_view_edit);
+        Edit_Time = (EditText) findViewById(R.id.time_view_edit);
 
         Edit_Time.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                Calendar mcurrentTime = Calendar.getInstance();
-                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+                mcurrentTime = Calendar.getInstance();
+                final int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
                 int minute = mcurrentTime.get(Calendar.MINUTE);
 
                 TimePickerDialog mTimePicker;
@@ -98,18 +103,37 @@ public class WakeUpCall extends AppCompatActivity {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
 
-                        Edit_Time.setText(selectedHour + ":" + selectedMinute);
-                        time = Edit_Time.getText().toString();
-                        valid++;
 
+                        _selectedHour = selectedHour;
+                        _min = selectedMinute;
+
+                        if (myCalendar.get(Calendar.DATE) == mcurrentTime.get(Calendar.DATE)) // is today?
+                        {
+                            if((Calendar.getInstance().get(Calendar.HOUR_OF_DAY)) >  selectedHour)
+                            {}
+                            else if((Calendar.getInstance().get(Calendar.HOUR_OF_DAY)) == selectedHour )
+                            {
+                                if((Calendar.getInstance().get(Calendar.MINUTE) > selectedMinute))
+                                {}
+                                else
+                                    setTextTimeAndValid();
+                            }
+                            else
+                                setTextTimeAndValid();
+                        }
+                        else
+                            setTextTimeAndValid();
                     }
-                    Calendar mcurrentTime = Calendar.getInstance();
+
+
                 }, hour, minute, true);
                 mTimePicker.setTitle(getResources().getString(R.string.select_time_str)); // add to strings  for all lang
                 mTimePicker.show();
 
             }
+
         });
+
 
         wakeupBT.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -178,4 +202,12 @@ public class WakeUpCall extends AppCompatActivity {
 
         edittext.setText(sdf.format(myCalendar.getTime()));
     }
+
+    private void setTextTimeAndValid() {
+
+        Edit_Time.setText(_selectedHour + ":" + _min);
+        time = Edit_Time.getText().toString();
+        valid++;
+    }
+
 }
