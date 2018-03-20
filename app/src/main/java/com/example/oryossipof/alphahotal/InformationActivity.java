@@ -147,7 +147,8 @@ public class InformationActivity extends Activity {
                             break;
 
                         case 6:
-
+                            intent = new Intent(InformationActivity.this, PoolTimeActivity.class);
+                            startActivity(intent);
                             break;
 
                     }
