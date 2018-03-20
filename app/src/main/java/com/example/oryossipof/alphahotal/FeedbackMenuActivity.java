@@ -63,8 +63,8 @@ public class FeedbackMenuActivity extends Activity {
                 newService = new ArrayList<HotelService>();
                 for(int i=0;i <feedResult.size();i++)
                 {
-                    BOOKING_ADDRESS = feedResult.get(i).weather_url;
-                    TRIPADVISOR_ADDRESS = feedResult.get(i).weather_url;
+                    BOOKING_ADDRESS = feedResult.get(i).booking_url;
+                    TRIPADVISOR_ADDRESS = feedResult.get(i).tripAdvisor_url;
                 }
                 //unregisterReceiver(receiver);
 

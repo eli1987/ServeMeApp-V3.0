@@ -23,10 +23,10 @@ import java.util.Locale;
 
 public class InformationActivity extends Activity {
 
-    public  String WEATHER_ADDRESS = "https://weather.com/weather/5day/l/ISXX0026:1:IS";
-    public  String SHABBAT_ADDRESS = "http://www.chabad.org/calendar/candleLighting_cdo/locationId/531/locationType/1/jewish/Candle-Lighting.htm";
-   public  String FLIGHTS_ADDRESS = "http://www.iaa.gov.il/en-us/airports/bengurion/pages/onlineflights.aspx";
-    public  String MAPS_ADDRESS = "https://www.google.com/maps/place/%D7%94%D7%99%D7%A8%D7%A7%D7%95%D7%9F+250,+%D7%AA%D7%9C+%D7%90%D7%91%D7%99%D7%91+%D7%99%D7%A4%D7%95%E2%80%AD/@32.0903647,34.7810838,16.5z/data=!4m5!3m4!1s0x151d4c7569b3a659:0x12b99dadb2b2c4ba!8m2!3d32.0921792!4d34.7731877";
+    public  String WEATHER_ADDRESS = "";
+    public  String SHABBAT_ADDRESS = "";
+   public  String FLIGHTS_ADDRESS = "";
+    public  String MAPS_ADDRESS = "";
     private ListView mListView ;
     private Context context;
     private int [] drawableName= {R.drawable.weather,R.drawable.maps,R.drawable.flight,R.drawable.shabb2,R.drawable.din,R.drawable.pre,R.drawable.pool};
@@ -67,9 +67,9 @@ public class InformationActivity extends Activity {
                 for(int i=0;i <infoResult.size();i++)
                 {
                     WEATHER_ADDRESS = infoResult.get(i).weather_url;
-                    MAPS_ADDRESS = infoResult.get(i).weather_url;
-                    FLIGHTS_ADDRESS = infoResult.get(i).weather_url;
-                    SHABBAT_ADDRESS = infoResult.get(i).weather_url;
+                    MAPS_ADDRESS = infoResult.get(i).maps_url;
+                    FLIGHTS_ADDRESS = infoResult.get(i).flightHours;
+                    SHABBAT_ADDRESS = infoResult.get(i).shabbatHours;
                 }
                 //unregisterReceiver(receiver);
 
@@ -127,7 +127,7 @@ public class InformationActivity extends Activity {
                             break;
 
                         case 2:     //flights
-                            intent = new Intent(Intent.ACTION_VIEW, Uri.parse( FLIGHTS_ADDRESS));
+                            intent = new Intent(Intent.ACTION_VIEW, Uri.parse(FLIGHTS_ADDRESS));
                             startActivity(intent);
                             break;
 

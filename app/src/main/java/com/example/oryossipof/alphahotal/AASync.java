@@ -30,6 +30,7 @@ public class AASync extends AsyncTask<String, Void,  ArrayList<HotelService>> {
     AlertDialog alertDialog;
     String result = null;
     ArrayList<HotelService> service = new ArrayList<HotelService>();
+    ArrayList<String> copyservice = new ArrayList<String>();
 
     AASync(Context ctx) {
         context = ctx;
@@ -43,13 +44,11 @@ public class AASync extends AsyncTask<String, Void,  ArrayList<HotelService>> {
         // String login_url = "http://192.168.14.157/ServerMeApp/login.php";
         String login_url = "http://servemeapp.000webhostapp.com//androidDataBaseQueries.php";
         // String notification_url = "http://securitymanagementapp.000webhostapp.com//send_notiofication.php";
-        Log.e("orkelev","1");
          if (type.equals("getService")) {
-             Log.e("orkelev","2");
             typeToCheck = "getService";
             try {
-                String workerNumber = params[1];
-                Log.e("orkelev",workerNumber);
+                String language = params[1];
+
                 URL url = new URL(login_url);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
@@ -61,9 +60,9 @@ public class AASync extends AsyncTask<String, Void,  ArrayList<HotelService>> {
 
                 OutputStream outputStream = httpURLConnection.getOutputStream();
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
-                String post_date = URLEncoder.encode("worker_number", "UTF-8") + "=" + URLEncoder.encode(workerNumber, "UTF-8")
+                String post_date = URLEncoder.encode("lang", "UTF-8") + "=" + URLEncoder.encode(language, "UTF-8")
                         + "&"+ URLEncoder.encode("todo", "UTF-8") + "=" + URLEncoder.encode("getService", "UTF-8");
-                Log.e("orkelev","3");
+
                 bufferedWriter.write(post_date);
                 bufferedWriter.flush();
                 bufferedWriter.close();
@@ -77,7 +76,7 @@ public class AASync extends AsyncTask<String, Void,  ArrayList<HotelService>> {
 
                 while ((line = bufferedReader.readLine()) != null) {
                     sb.append(line+"\n");
-                    Log.e("orkelev","3");
+
                 }
                 result =sb.toString();
 
@@ -95,13 +94,15 @@ public class AASync extends AsyncTask<String, Void,  ArrayList<HotelService>> {
             try {
                 JSONArray ja = new JSONArray(result);
                 JSONObject jo = null;
-                Log.e("orkelev",ja.length()+"");
                 for(int i = 0 ; i <ja.length();i++)
                 {
                     jo= ja.getJSONObject(i);
                     //the names of the string spouse to be the same in the phpmyadmin table (for now there is no table on the server).
-                    service.add(new HotelService(jo.getString("securityNumber"),jo.getString("recNumber"),jo.getString("booking_url"),jo.getString("tripAdvisor_url"),jo.getString("weather_url"),jo.getString("maps_url")));
+                    copyservice.add(jo.getString("description"));
                 }
+
+                service.add(new HotelService(copyservice.get(0),copyservice.get(1),copyservice.get(2),copyservice.get(3),copyservice.get(4),copyservice.get(5),copyservice.get(6),copyservice.get(7)));
+
             }
             catch (Exception e)
             {

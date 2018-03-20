@@ -1,22 +1,28 @@
 package com.example.oryossipof.alphahotal;
 
 
-public class HotelService {
+import java.io.Serializable;
+
+public class HotelService implements Serializable {
 
     public String securityNumber;
     public String recNumber;
     public String booking_url;
     public String tripAdvisor_url;
     public String weather_url;
+    public String shabbatHours;
+    public String flightHours;
     public String maps_url;
 
-    public HotelService(String securityNumber,String recNumber, String booking_url,String tripAdvisor_url,String weather_url,String maps_url) {
+    public HotelService(String securityNumber,String recNumber, String booking_url,String tripAdvisor_url,String weather_url,String maps_url , String shabbatHours ,String flightHours) {
         this.securityNumber = securityNumber;
         this.recNumber = recNumber;
         this.booking_url = booking_url;
         this.tripAdvisor_url = tripAdvisor_url;
         this.weather_url = weather_url;
         this.maps_url = maps_url;
+        this.shabbatHours = shabbatHours;
+        this.flightHours = flightHours;
 
 
     }
@@ -70,6 +76,22 @@ public class HotelService {
     }
 
 
+
+    public void setShabbatHours(String shabbatHours) {
+        this.shabbatHours = shabbatHours;
+    }
+
+    public String getShabbatHours() {
+        return shabbatHours;
+    }
+
+    public void setFlightHours(String flightHours) {
+        this.flightHours = flightHours;
+    }
+
+    public String getFlightHours() {
+        return flightHours;
+    }
 }
 
 
