@@ -68,9 +68,10 @@
         <activity
             android:name=".WakeUpCall"
             android:screenOrientation="portrait" />
-        <activity android:name=".DiningHoursActivity"
-            android:screenOrientation="portrait"
-            ></activity>
+        <activity
+            android:name=".DiningHoursActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".EmployeeRateingActivity"></activity>
     </application>
 
 </manifest>

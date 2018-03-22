@@ -90,7 +90,8 @@ public class FeedbackMenuActivity extends Activity {
                     {
 
                         case 0:
-                             Toast.makeText(FeedbackMenuActivity.this, "workers", Toast.LENGTH_SHORT).show();
+                            intent = new Intent(FeedbackMenuActivity.this, EmployeeRateingActivity.class);
+                            startActivity(intent);
                              break;
 
                         case 1:
