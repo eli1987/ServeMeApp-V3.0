@@ -3,24 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/pool3"
+    android:background="@drawable/tomto2"
     android:orientation="vertical"
-    tools:context="com.example.oryossipof.alphahotal.PoolTimeActivity">
+    tools:context="com.example.oryossipof.alphahotal.DiningHoursActivity">
 
 
     <TextView
-        android:id="@+id/poolHeader"
+        android:id="@+id/DiningHeader"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="@string/Pool_hours_str"
+        android:text="@string/dininghours_str"
         android:textSize="40sp"
         android:textStyle="bold"
         android:layout_gravity="center"
         android:textAlignment="center"/>
 
     <TextView
-        android:id="@+id/firstlinepooltextview"
+        android:id="@+id/diningtextview"
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

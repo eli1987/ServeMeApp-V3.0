@@ -89,5 +89,8 @@
         <item>海法和阿卡</item>
         <item>和南部</item>
     </string-array>
+    <string name="wakeUp_call_str">叫醒服务</string>
+    <string name="poolhours_str">游泳池时间</string>
+    <string name="dininghours_str">用餐时间</string>
 
 </resources>

@@ -88,7 +88,7 @@ public class RoomServiceActivity extends Activity {
                     {
                         case 10:
                             // startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("035433333")));
-                            CallService.callPhoneNumber(RoomServiceActivity.this,telNumber);
+                            CallService.callPhoneNumber(RoomServiceActivity.this,InformationUtils.ROOM_SERVICE_CALL);
 
                             break;
 

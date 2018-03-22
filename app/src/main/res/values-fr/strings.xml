@@ -89,6 +89,9 @@
         <item>Haïfa et Acre</item>
         <item>Mitzpe Ramon et le sud</item>
     </string-array>
+    <string name="wakeUp_call_str">appel de réveil</string>
+    <string name="poolhours_str">Heures de billard</string>
+    <string name="dininghours_str">heures de la salle à manger</string>
 
 
 </resources>

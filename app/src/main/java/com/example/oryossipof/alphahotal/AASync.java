@@ -101,7 +101,8 @@ public class AASync extends AsyncTask<String, Void,  ArrayList<HotelService>> {
                     copyservice.add(jo.getString("description"));
                 }
 
-                service.add(new HotelService(copyservice.get(0),copyservice.get(1),copyservice.get(2),copyservice.get(3),copyservice.get(4),copyservice.get(5),copyservice.get(6),copyservice.get(7)));
+                service.add(new HotelService(copyservice.get(0),copyservice.get(1),copyservice.get(2),copyservice.get(3),copyservice.get(4),copyservice.get(5),copyservice.get(6),copyservice.get(7),copyservice.get(8)
+                        ,copyservice.get(9),copyservice.get(10),copyservice.get(11)));
 
             }
             catch (Exception e)

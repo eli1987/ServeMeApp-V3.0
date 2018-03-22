@@ -34,6 +34,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         descriptions = new String[]{getResources().getString(R.string.Reception_str), getResources().getString(R.string.Housekeeping_str), getResources().getString(R.string.Security_str), getResources().getString(R.string.Information_str), getResources().getString(R.string.Room_Service_str), getResources().getString(R.string.Maintenance_str), getResources().getString(R.string.Feedback_str)};
         initData();
+        InformationUtils.initalizeInformation(this);
 
       roomNum = getIntent().getStringExtra("roomNum");
 

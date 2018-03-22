@@ -14,28 +14,63 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
-        <activity android:name=".SigninActivity">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SigninActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FeedbackActivity" />
-        <activity android:name=".HotelHousekeepingActivity" />
-        <activity android:name=".InformationActivity" />
-        <activity android:name=".FeedbackMenuActivity" />
-        <activity android:name=".MaintenanceActivity" />
-        <activity android:name=".ReceptionActivity" />
-        <activity android:name=".SecurityActivity" />
-        <activity android:name=".RoomServiceActivity" />
-        <activity android:name=".questionnairesActivity" />
-        <activity android:name=".ActivitiesActivity" />
-        <activity android:name=".BookTaxiActivity" />
-        <activity android:name=".BookTripActivity" />
-        <activity android:name=".PoolTimeActivity"></activity>
-        <activity android:name=".WakeUpCall"></activity>
+        <activity
+            android:name=".FeedbackActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HotelHousekeepingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".InformationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FeedbackMenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MaintenanceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ReceptionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SecurityActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RoomServiceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".questionnairesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ActivitiesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".BookTaxiActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".BookTripActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PoolTimeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WakeUpCall"
+            android:screenOrientation="portrait" />
+        <activity android:name=".DiningHoursActivity"
+            android:screenOrientation="portrait"
+            ></activity>
     </application>
 
 </manifest>

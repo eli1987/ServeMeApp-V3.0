@@ -81,53 +81,57 @@ public class MaintenanceActivity extends Activity {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent;
-                    BackgroundWorker bg = new BackgroundWorker(MaintenanceActivity.this);
-                    bg.execute("insertNewRequest", roomNum, department, maintenanceDesc[index], "");
-                    progress.setMessage(getResources().getString(R.string.Delivring_request_str));
-                    progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-                    progress.setIndeterminate(false);
-                    progress.setCancelable(false);
-                    progress.setCanceledOnTouchOutside(false);
-                    progress.setProgress(0);
-                    progress.show();
 
-                    registerReceiver(receiver = new BroadcastReceiver() {
-                        @Override
-                        public void onReceive(Context context, Intent intent) {
-                            String result = (String) intent.getExtras().getString("result");
+                    switch (index) {
+                        case 5:
+                            // startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("035433333")));
+                            CallService.callPhoneNumber(MaintenanceActivity.this, InformationUtils.MAINTENANCE_CALL);
+                            break;
+
+                        default:
+                            Intent intent;
+                            BackgroundWorker bg = new BackgroundWorker(MaintenanceActivity.this);
+                            bg.execute("insertNewRequest", roomNum, department, maintenanceDesc[index], "");
+                            progress.setMessage(getResources().getString(R.string.Delivring_request_str));
+                            progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                            progress.setIndeterminate(false);
+                            progress.setCancelable(false);
+                            progress.setCanceledOnTouchOutside(false);
+                            progress.setProgress(0);
+                            progress.show();
+
+                            registerReceiver(receiver = new BroadcastReceiver() {
+                                @Override
+                                public void onReceive(Context context, Intent intent) {
+                                    String result = (String) intent.getExtras().getString("result");
 
 
-                            progress.setProgress(100);
-                            progress.dismiss();
+                                    progress.setProgress(100);
+                                    progress.dismiss();
 
-                            //alertDialog.show();
-                            if(result.equals("New requests accepted successfully")) {
-                                Toast.makeText(MaintenanceActivity.this, getResources().getString(R.string.New_request_accepted_successfully_str), Toast.LENGTH_SHORT).show();
+                                    //alertDialog.show();
+                                    if (result.equals("New requests accepted successfully")) {
+                                        Toast.makeText(MaintenanceActivity.this, getResources().getString(R.string.New_request_accepted_successfully_str), Toast.LENGTH_SHORT).show();
 
-                                unregisterReceiver(receiver);
+                                        unregisterReceiver(receiver);
 
-                            }
-                            else if (result.equals("no one in the room"))
-                            {
-                                Toast.makeText(MaintenanceActivity.this, getResources().getString(R.string.not_occupied_str), Toast.LENGTH_SHORT).show();
-                                unregisterReceiver(receiver);
-                            }
-                            else if (result.equals("same request"))
-                            {
-                                Toast.makeText(MaintenanceActivity.this,getResources().getString(R.string.tooManyRequests_str), Toast.LENGTH_SHORT).show();
-                                unregisterReceiver(receiver);
+                                    } else if (result.equals("no one in the room")) {
+                                        Toast.makeText(MaintenanceActivity.this, getResources().getString(R.string.not_occupied_str), Toast.LENGTH_SHORT).show();
+                                        unregisterReceiver(receiver);
+                                    } else if (result.equals("same request")) {
+                                        Toast.makeText(MaintenanceActivity.this, getResources().getString(R.string.tooManyRequests_str), Toast.LENGTH_SHORT).show();
+                                        unregisterReceiver(receiver);
 
-                            }
-                            else
-                            {
-                                Toast.makeText(MaintenanceActivity.this, getResources().getString(R.string.Connection_error_try_again_later_str), Toast.LENGTH_SHORT).show();
-                                unregisterReceiver(receiver);
-                            }
+                                    } else {
+                                        Toast.makeText(MaintenanceActivity.this, getResources().getString(R.string.Connection_error_try_again_later_str), Toast.LENGTH_SHORT).show();
+                                        unregisterReceiver(receiver);
+                                    }
 
-                        }
+                                }
 
-                    }, new IntentFilter("resultIntent4"));
+                            }, new IntentFilter("resultIntent4"));
+                            break;
+                    }
                 }
 
             });

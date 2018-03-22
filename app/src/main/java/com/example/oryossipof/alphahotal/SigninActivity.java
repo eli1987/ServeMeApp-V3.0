@@ -53,21 +53,25 @@ public class SigninActivity extends Activity {
                             String type = "didQuestionnairesBefore";
                             backgroundWorker2 = new BackgroundWorker(SigninActivity.this);
                             backgroundWorker2.execute(type, roomNum.getText().toString());
-                            registerReceiver(receiver = new BroadcastReceiver() {
+
+                            registerReceiver(receiver2 = new BroadcastReceiver() {
 
                                 @Override
                                 public void onReceive(Context context, Intent intent) {
                                     String result = (String)intent.getExtras().getString("result");
                                     if (result.equals("used"))
                                     {
+
                                         Intent intent1 = new Intent(SigninActivity.this, MainActivity.class).putExtra("roomNum",roomNum.getText().toString());
                                         startActivity(intent1);
                                         try {
+
                                             this.finalize();
                                         } catch (Throwable throwable) {
                                             throwable.printStackTrace();
                                         }
                                         unregisterReceiver(receiver);
+                                        unregisterReceiver(receiver2);
                                         finish();
                                     }
                                     else
@@ -79,7 +83,7 @@ public class SigninActivity extends Activity {
                                         } catch (Throwable throwable) {
                                             throwable.printStackTrace();
                                         }
-                                        unregisterReceiver(receiver);
+                                        unregisterReceiver(receiver2);
                                         finish();
                                     }
 
@@ -95,10 +99,13 @@ public class SigninActivity extends Activity {
                             alertDialog.setTitle(getResources().getString(R.string.login_result_str));
                             alertDialog.setMessage(getResources().getString(R.string.login_failed_str));
                             alertDialog.show();
+
                             unregisterReceiver(receiver);
 
 
                         }
+
+
                     }
 
                 }, new IntentFilter("resultIntent"));

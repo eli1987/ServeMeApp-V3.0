@@ -89,4 +89,7 @@
         <item>Хайфа и Акко</item>
         <item>Мицпе Рамон и юг</item>
     </string-array>
+    <string name="wakeUp_call_str">звонок для пробуждения</string>
+    <string name="poolhours_str">Часы в бассейне</string>
+    <string name="dininghours_str">столовая</string>
 </resources>

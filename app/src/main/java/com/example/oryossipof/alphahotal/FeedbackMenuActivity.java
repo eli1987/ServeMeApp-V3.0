@@ -22,8 +22,8 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 public class FeedbackMenuActivity extends Activity {
-    public  String BOOKING_ADDRESS = "https://www.booking.com/hotel/il/grand-beach-tel-aviv.he.html?aid=318615;label=Hebrew_Israel_HE_IL_44751382046-b54ePFlPEwDySRepOPD0WwS219301755770%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap1t1%3Aneg;sid=622130f2c3321d95eb2cbd85b74ebd5c;dest_id=-781545;dest_type=city;dist=0;hapos=1;hpos=1;room1=A%2CA;sb_price_type=total;srepoch=1512832361;srfid=ad0dfa181b8c10841d3ad2954cf323bada140fd2X1;srpvid=df5e6af48488045c;type=total;ucfs=1&#tab-main";
-    public  String TRIPADVISOR_ADDRESS = "https://www.tripadvisor.co.il/Hotel_Review-g293984-d308679-Reviews-Grand_Beach_Hotel-Tel_Aviv_Tel_Aviv_District.html";
+    public  String BOOKING_ADDRESS ="";
+    public  String TRIPADVISOR_ADDRESS = "";
     private int drawableNames[] = {R.drawable.workers,R.drawable.foodrat,R.drawable.booking,R.drawable.tripadv,R.drawable.feedback2};
     private String  feedback[];
 
@@ -31,10 +31,7 @@ public class FeedbackMenuActivity extends Activity {
 
     private ListView mListView ;
     private Context context;
-    private AASync AASync;
-    private BroadcastReceiver serviceReceiver;
-    ArrayList<HotelService> feedResult = new ArrayList<>();
-    ArrayList<HotelService> newService =new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,28 +47,9 @@ public class FeedbackMenuActivity extends Activity {
         mListView.setAdapter(adapter);
         context=this;
 
-        String type = "getService";
-        String CurrentLang = Locale.getDefault().getLanguage();
-        // startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("035433333")));
-        AASync = new AASync(FeedbackMenuActivity.this);
-        AASync.execute(type,CurrentLang);
-        registerReceiver(serviceReceiver =new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                feedResult = (ArrayList<HotelService>)intent.getSerializableExtra("result");
-                Log.e("result",feedResult.size()+"");
-                newService = new ArrayList<HotelService>();
-                for(int i=0;i <feedResult.size();i++)
-                {
-                    BOOKING_ADDRESS = feedResult.get(i).booking_url;
-                    TRIPADVISOR_ADDRESS = feedResult.get(i).tripAdvisor_url;
-                }
-                //unregisterReceiver(receiver);
 
-            }
-
-
-        }, new IntentFilter("serviceIntent"));
+                    BOOKING_ADDRESS = InformationUtils.BOOKING_ADDRESS;
+                    TRIPADVISOR_ADDRESS = InformationUtils.TRIPADVISOR_ADDRESS;
 
 
     }

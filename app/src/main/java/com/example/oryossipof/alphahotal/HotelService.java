@@ -13,8 +13,14 @@ public class HotelService implements Serializable {
     public String shabbatHours;
     public String flightHours;
     public String maps_url;
+    public String pool;
+    public String roomServiceCall;
+    public String mantenanceCall;
+    public String diningHour;
 
-    public HotelService(String securityNumber,String recNumber, String booking_url,String tripAdvisor_url,String weather_url,String maps_url , String shabbatHours ,String flightHours) {
+    public HotelService(String securityNumber,String recNumber, String booking_url,String tripAdvisor_url,String weather_url,String maps_url ,String pool, String shabbatHours ,String flightHours
+            ,String roomServiceCall, String mantenanceCall ,String diningHour
+    ) {
         this.securityNumber = securityNumber;
         this.recNumber = recNumber;
         this.booking_url = booking_url;
@@ -23,10 +29,21 @@ public class HotelService implements Serializable {
         this.maps_url = maps_url;
         this.shabbatHours = shabbatHours;
         this.flightHours = flightHours;
+        this.pool = pool;
+        this.roomServiceCall = roomServiceCall;
+        this.mantenanceCall = mantenanceCall;
+        this.diningHour = diningHour;
 
 
     }
 
+    public String getPool() {
+        return pool;
+    }
+
+    public void setPool(String pool) {
+        this.pool = pool;
+    }
     public String getBooking_url() {
         return booking_url;
     }

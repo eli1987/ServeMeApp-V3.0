@@ -2,13 +2,10 @@ package com.example.oryossipof.alphahotal;
 
         import android.app.Activity;
 import android.app.ProgressDialog;
-        import android.content.BroadcastReceiver;
-        import android.content.Context;
+import android.content.Context;
 import android.content.Intent;
-        import android.content.IntentFilter;
-        import android.os.Bundle;
-        import android.util.Log;
-        import android.view.View;
+import android.os.Bundle;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
@@ -16,9 +13,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-
-        import java.util.ArrayList;
-        import java.util.Locale;
 
 public class ReceptionActivity extends Activity {
     private String telNumber ="035433333";
@@ -29,10 +23,7 @@ public class ReceptionActivity extends Activity {
     String reception[];
     private ListView mListView ;
     private Context context;
-    private AASync AASync;
-    private BroadcastReceiver serviceReceiver;
-    ArrayList<HotelService> receService = new ArrayList<>();
-    ArrayList<HotelService> newService =new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,34 +78,8 @@ public class ReceptionActivity extends Activity {
                     switch(index)
                     {
                         case 0:
-                            // startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("035433333")));
 
-
-                            String type = "getService";
-                            String CurrentLang = Locale.getDefault().getLanguage();
-                            // startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("035433333")));
-                            AASync = new AASync(ReceptionActivity.this);
-                            AASync.execute(type,CurrentLang);
-                            registerReceiver(serviceReceiver =new BroadcastReceiver() {
-                                @Override
-                                public void onReceive(Context context, Intent intent) {
-                                    receService = (ArrayList<HotelService>)intent.getSerializableExtra("result");
-                                    Log.e("result",receService.size()+"");
-                                    newService = new ArrayList<HotelService>();
-                                    for(int i=0;i <receService.size();i++)
-                                    {
-                                        newService.add(receService.get(i));
-                                    }
-                                    //unregisterReceiver(receiver);
-                                    CallService.callPhoneNumber(ReceptionActivity.this,newService.get(0).recNumber);
-
-                                }
-
-
-                            }, new IntentFilter("serviceIntent"));
-
-
-                           // CallService.callPhoneNumber(ReceptionActivity.this,telNumber);
+                            CallService.callPhoneNumber(ReceptionActivity.this,InformationUtils.CallReception);
 
                             break;
 

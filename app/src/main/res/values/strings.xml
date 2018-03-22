@@ -68,6 +68,9 @@
     <string name="otherDest_str">Other</string>
     <string name="tooManyRequests_str">Too many open requests from the same service </string>
     <string name="not_occupied_str">This room is not occupied</string>
+    <string name="poolhours_str">Pool hours </string>
+    <string name="dininghours_str">Dining room hours</string>
+
 
 
     <string name="Book_a_Texi_str">Book a taxi</string>
@@ -83,8 +86,6 @@
     <string name="select_time_str">Select Time</string>
     <string name="empty_date_str">Please complete the date and time fields</string>
     <string name="wakeUp_call_str">Wake up call</string>
-
-
 
 
     <string-array name="passArray">
@@ -104,7 +105,6 @@
         <item>Haifa and Acre</item>
         <item>Mitzpe Ramon and the south</item>
     </string-array>
-
 
 
 </resources>

@@ -90,4 +90,6 @@
         <item>Mitzpe Ramon and the south</item>
     </string-array>
     <string name="wakeUp_call_str">Wake up call</string>
+    <string name="poolhours_str">Pool hours</string>
+    <string name="dininghours_str">Dining room hours</string>
 </resources>

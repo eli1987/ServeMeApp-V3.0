@@ -90,4 +90,6 @@
         <item>מצפה רמון והנגב</item>
     </string-array>
     <string name="wakeUp_call_str">צלצול השכמה</string>
+    <string name="poolhours_str">שעות פתיחה של הבריכה</string>
+    <string name="dininghours_str">שעות פתיחה של חדר אוכל</string>
 </resources>

@@ -89,6 +89,9 @@
         <item>Haifa und Akko</item>
         <item>Mitzpe Ramon und der Süden</item>
     </string-array>
+    <string name="wakeUp_call_str">Weckruf</string>
+    <string name="poolhours_str">Pool Stunden</string>
+    <string name="dininghours_str">Esszimmer Stunden</string>
 
 
 </resources>

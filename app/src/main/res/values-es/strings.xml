@@ -89,5 +89,8 @@
         <item>Haifa y Acre</item>
         <item>Mitzpe Ramón y el sur</item>
     </string-array>
+    <string name="wakeUp_call_str">llamada de atención</string>
+    <string name="poolhours_str">Horas de piscina</string>
+    <string name="dininghours_str">heures de la salle à manger</string>
 
 </resources>

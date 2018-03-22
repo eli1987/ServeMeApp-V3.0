@@ -1,5 +1,6 @@
 package com.example.oryossipof.alphahotal;
 
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -8,13 +9,15 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-public class questionnairesActivity extends AppCompatActivity {
+public class questionnairesActivity extends Activity {
     private Button sendBt;
     private RadioGroup radioGroup1,radioGroup2, radioGroup3,radioGroup4,radioGroup5,radioGroup6,radioGroup7,radioGroup8 ;
     private RadioButton adult,  male, vegeterian, vegan, married, children, pleasute, group;
@@ -26,6 +29,8 @@ public class questionnairesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_questionnaires);
 
         sendBt = (Button) findViewById(R.id.sendbt);
