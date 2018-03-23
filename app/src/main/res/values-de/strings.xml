@@ -92,6 +92,15 @@
     <string name="wakeUp_call_str">Weckruf</string>
     <string name="poolhours_str">Pool Stunden</string>
     <string name="dininghours_str">Esszimmer Stunden</string>
+    <string name="New_Rate_accepted_successfully_str">Ihre Bewertung wurde akzeptiert</string>
+    <string name="ratebt_str">Bewertung</string>
+    <string name="servicer_str">Bedienung</string>
+    <string name="what_str">Was denkst du über uns ?</string>
+    <string name="check_in_Str">Check In</string>
+    <string name="check_out_str">Check out</string>
+    <string name="cleanliness_str">Sauberkeit</string>
+    <string name="Quality_of_food_str">Qualität des Essens</string>
+    <string name="Comfort_str">Komfort</string>
 
 
 </resources>

@@ -164,6 +164,17 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
             String result = handleBack(type,params,login_url);
             return result;
         }
+        else if (type.equals("RateEmployee")) {
+            typeToCheck = "RateEmployee";
+            String result = handleBack(type,params,login_url);
+            return result;
+        }
+        else if (type.equals("RateHotel")) {
+            typeToCheck = "RateHotel";
+            String result = handleBack(type,params,login_url);
+            return result;
+        }
+
 
 
         return null;
@@ -233,11 +244,10 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
 
     @Override
     protected void onPreExecute () {
-        //  if (typeToCheck != "login")
-        // {
+
         alertDialog = new AlertDialog.Builder(context).create();
         alertDialog.setTitle("Login Status");
-        //      }
+
 
 
     }
@@ -248,14 +258,14 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
             Intent intent = new Intent("resultIntent3");
             intent.putExtra("result", result);
             context.sendBroadcast(intent);
-            Log.e("questionnaires" , "questionnaires");
+
         }
         else if(typeToCheck == "didQuestionnairesBefore")
         {
             Intent intent = new Intent("resultIntent2");
             intent.putExtra("result", result);
             context.sendBroadcast(intent);
-            Log.e("IsQuestionnairesDone" , "IsQuestionnairesDone");
+
         }
 
 
@@ -264,7 +274,21 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
             Intent intent = new Intent("resultIntent4");
             intent.putExtra("result", result);
             context.sendBroadcast(intent);
-       //     Log.e("IsQuestionnairesDone" , "IsQuestionnairesDone");
+
+        }
+        else if (typeToCheck == "RateEmployee")
+        {
+            Intent intent = new Intent("RateIntent");
+            intent.putExtra("result", result);
+            context.sendBroadcast(intent);
+
+        }
+        else if (typeToCheck == "RateHotel")
+        {
+            Intent intent = new Intent("RateIntent");
+            intent.putExtra("result", result);
+            context.sendBroadcast(intent);
+
         }
 
 
@@ -273,7 +297,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
             Intent intent = new Intent("resultIntent");
             intent.putExtra("result", result);
             context.sendBroadcast(intent);
-            Log.e("login" , "login");
+
         }
 
 

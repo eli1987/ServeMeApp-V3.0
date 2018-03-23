@@ -26,7 +26,7 @@ public class FeedbackMenuActivity extends Activity {
     public  String TRIPADVISOR_ADDRESS = "";
     private int drawableNames[] = {R.drawable.workers,R.drawable.foodrat,R.drawable.booking,R.drawable.tripadv,R.drawable.feedback2};
     private String  feedback[];
-
+    private String  roomNum;
     private Class[] connections = {MainActivity.class, MainActivity.class, MainActivity.class,MainActivity.class, FeedbackActivity.class};
 
     private ListView mListView ;
@@ -40,7 +40,7 @@ public class FeedbackMenuActivity extends Activity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_feedback_menu);
         feedback =new String[]{getResources().getString(R.string.Employees_Rating_str),getResources().getString(R.string.Food_Rating_str),"Booking.com","Tripadvisor.com",getResources().getString(R.string.Hotel_Feedback_str)};
-
+        roomNum = getIntent().getStringExtra("roomNum");
 
         mListView = (ListView) findViewById(R.id.lv_housekeeping);
         final CutomAdapter2 adapter = new CutomAdapter2();
@@ -109,7 +109,7 @@ public class FeedbackMenuActivity extends Activity {
                              break;
 
                         case 4:
-                            intent = new Intent(FeedbackMenuActivity.this, connections[index]);
+                            intent = new Intent(FeedbackMenuActivity.this, connections[index]).putExtra("roomNum",roomNum);;
                             startActivity(intent);
                             break;
 

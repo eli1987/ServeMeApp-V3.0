@@ -96,7 +96,7 @@ public class EmpAASync extends AsyncTask<String, Void, ArrayList<Employee>> {
                 {
                     jo= ja.getJSONObject(i);
                     //the names of the string spouse to be the same in the phpmyadmin table (for now there is no table on the server).
-                    service.add(new Employee(jo.getString("fname"),jo.getString("lname"),jo.getString("department"),jo.getString("imgstr")));
+                    service.add(new Employee(jo.getString("id"),jo.getString("fname"),jo.getString("lname"),jo.getString("department"),jo.getString("imgstr")));
                 }
 
 

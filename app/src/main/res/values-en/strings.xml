@@ -92,4 +92,13 @@
     <string name="wakeUp_call_str">Wake up call</string>
     <string name="poolhours_str">Pool hours</string>
     <string name="dininghours_str">Dining room hours</string>
+    <string name="New_Rate_accepted_successfully_str">"Your rating has been accepted "</string>
+    <string name="ratebt_str">Rate</string>
+    <string name="servicer_str">Service</string>
+    <string name="what_str">What do you think about us ?</string>
+    <string name="check_in_Str">Check in</string>
+    <string name="check_out_str">Check out</string>
+    <string name="cleanliness_str">Cleanliness</string>
+    <string name="Quality_of_food_str">Quality of food</string>
+    <string name="Comfort_str">Comfort</string>
 </resources>

@@ -5,13 +5,15 @@ import java.io.Serializable;
 
 public class Employee implements Serializable{
 
+    public String empId;
     public String firtstname;
     public String lastname;
     public String deppartment;
     public String imageStr;
 
 
-    public Employee(String firtstname, String lastname, String deppartment, String imageStr) {
+    public Employee(String empId,String firtstname, String lastname, String deppartment, String imageStr) {
+        this.empId= empId;
         this.firtstname = firtstname;
         this.lastname = lastname;
         this.deppartment = deppartment;
@@ -48,6 +50,14 @@ public class Employee implements Serializable{
 
     public void setImageStr(String imageStr) {
         this.imageStr = imageStr;
+    }
+
+    public String getEmpId() {
+        return empId;
+    }
+
+    public void setEmpId(String empId) {
+        this.empId = empId;
     }
 }
 

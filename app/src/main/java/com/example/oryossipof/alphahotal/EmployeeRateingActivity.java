@@ -64,6 +64,7 @@ public class EmployeeRateingActivity extends Activity {
                 //unregisterReceiver(receiver);
                 adapter.addAll(newUsers);
                 listView.setAdapter(adapter);
+                unregisterReceiver(receiver);
             }
 
 

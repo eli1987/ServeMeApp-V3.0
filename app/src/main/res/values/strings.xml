@@ -57,7 +57,7 @@
     <string name="Activities_str">Activities</string>
     <string name="Pool_hours_str">Pool hours</string>
     <string name="New_request_accepted_successfully_str">New request accepted successfully</string>
-    <string name="Connection_error_try_again_later_str">Connection error! try again later</string>
+    <string name="Connection_error_try_again_later_str">c error! try again later</string>
     <string name="Delivring_request_str">Delivering request....</string>
     <string name="telAviv_str">Tel Aviv</string>
     <string name="jerusalem_str">Jerusalem</string>
@@ -85,6 +85,16 @@
     <string name="select_time_str">Select Time</string>
     <string name="empty_date_str">Please complete the date and time fields</string>
     <string name="wakeUp_call_str">Wake up call</string>
+    <string name="New_Rate_accepted_successfully_str">Your rating has been accepted</string>
+    <string name="check_in_Str">Check in</string>
+    <string name="check_out_str">Check out</string>
+    <string name="cleanliness_str">Cleanliness</string>
+    <string name="Comfort_str">Comfort</string>
+    <string name="Quality_of_food_str">Quality of food</string>
+    <string name="servicer_str">Service</string>
+    <string name="what_str">What do you think about us ?</string>
+    <string name="ratebt_str">Rate</string>
+
 
 
     <string-array name="passArray">

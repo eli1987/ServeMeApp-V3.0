@@ -92,4 +92,13 @@
     <string name="wakeUp_call_str">звонок для пробуждения</string>
     <string name="poolhours_str">Часы в бассейне</string>
     <string name="dininghours_str">столовая</string>
+    <string name="New_Rate_accepted_successfully_str">Ваш рейтинг принят</string>
+    <string name="ratebt_str">ставка</string>
+    <string name="servicer_str">обслуживание</string>
+    <string name="what_str">Что вы думаете о нас?</string>
+    <string name="check_in_Str">Регистрироваться</string>
+    <string name="check_out_str">Проверять, выписываться</string>
+    <string name="cleanliness_str">чистота</string>
+    <string name="Quality_of_food_str">Качество продуктов питания</string>
+    <string name="Comfort_str">комфорт</string>
 </resources>

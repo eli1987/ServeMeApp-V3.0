@@ -92,4 +92,13 @@
     <string name="wakeUp_call_str">צלצול השכמה</string>
     <string name="poolhours_str">שעות פתיחה של הבריכה</string>
     <string name="dininghours_str">שעות פתיחה של חדר אוכל</string>
+    <string name="New_Rate_accepted_successfully_str">הדירוג שלך התקבל</string>
+    <string name="Comfort_str">נוחות</string>
+    <string name="Quality_of_food_str">איכות האוכל</string>
+    <string name="check_in_Str">כניסה</string>
+    <string name="check_out_str">יציאה</string>
+    <string name="cleanliness_str">ניקיון</string>
+    <string name="servicer_str">שירות</string>
+    <string name="what_str">מה אתם חושבים עלינו?</string>
+    <string name="ratebt_str">דרג</string>
 </resources>
