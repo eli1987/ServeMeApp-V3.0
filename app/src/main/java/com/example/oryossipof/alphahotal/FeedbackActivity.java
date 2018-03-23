@@ -36,7 +36,6 @@ public class FeedbackActivity extends Activity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_feedback);
 
-        progress= new ProgressDialog(context);
 
         addListenerOnRatingBar();
         addListenerOnButton();
@@ -60,6 +59,8 @@ public class FeedbackActivity extends Activity {
                 bg.execute("RateHotel", roomNum,String.valueOf(ratingList.get(0).getRating()),String.valueOf(ratingList.get(1).getRating()),String.valueOf(ratingList.get(2).getRating())
                         ,String.valueOf(ratingList.get(3).getRating()),String.valueOf(ratingList.get(4).getRating())
                         ,String.valueOf(ratingList.get(5).getRating()),String.valueOf(ratingList.get(6).getRating()),String.valueOf(ratingList.get(7).getRating()));
+
+                    progress= new ProgressDialog(FeedbackActivity.this);
 
                         progress.setMessage(context.getResources().getString(R.string.Delivring_request_str));
                         progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);

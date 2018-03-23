@@ -5,17 +5,12 @@ import java.io.Serializable;
 
 public class MyActivity implements Serializable {
 
-    public String title;
-    public String location;
-    public String hours;
-    public String time;
+    public String activityName;
     public String info;
 
-    public MyActivity(String title,String location, String hours,String time,String info) {
-        this.title = title;
-        this.location = location;
-        this.hours = hours;
-        this.time = time;
+
+    public MyActivity(String activityName,String info) {
+        this.activityName = activityName;
         this.info = info;
     }
 }

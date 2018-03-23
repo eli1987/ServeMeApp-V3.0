@@ -1,13 +1,10 @@
 package com.example.oryossipof.alphahotal;
 
 import android.app.Activity;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -17,9 +14,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.Locale;
 
 public class FeedbackMenuActivity extends Activity {
     public  String BOOKING_ADDRESS ="";
@@ -90,7 +84,7 @@ public class FeedbackMenuActivity extends Activity {
                     {
 
                         case 0:
-                            intent = new Intent(FeedbackMenuActivity.this, EmployeeRateingActivity.class);
+                            intent = new Intent(FeedbackMenuActivity.this, EmployeeRateingActivity.class).putExtra("roomNum",roomNum);;
                             startActivity(intent);
                              break;
 

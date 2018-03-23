@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AlphaHotal</string>
+    <string name="app_name">ServeMeApp</string>
     <string name="activity_title_str">Titre</string>
     <string name="activity_time_str">temps</string>
     <string name="activity_location_str">emplacement</string>
@@ -101,6 +101,7 @@
     <string name="cleanliness_str">Propreté</string>
     <string name="Quality_of_food_str">Qualité de la nourriture</string>
     <string name="Comfort_str">Confort</string>
+    <string name="Rate_emp_str">Noter l\'employé</string>
 
 
 </resources>

@@ -1,6 +1,5 @@
 package com.example.oryossipof.alphahotal;
 
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -22,21 +21,26 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
-public class EmpAASync extends AsyncTask<String, Void, ArrayList<Employee>> {
+/**
+ * Created by אלי on 23/03/2018.
+ */
+
+public class ActivityAASync extends AsyncTask<String, Void, ArrayList<MyActivity>> {
 
     private static String typeToCheck = "";
     Context context;
     AlertDialog alertDialog;
     String result = null;
-    ArrayList<Employee> service = new ArrayList<Employee>();
+    ArrayList<MyActivity> myActivities = new ArrayList<MyActivity>();
     ArrayList<String> copyservice = new ArrayList<String>();
 
-    EmpAASync(Context ctx) {
+    ActivityAASync(Context ctx) {
         context = ctx;
     }
 
     @Override
-    protected ArrayList<Employee> doInBackground(String... params) {
+    protected ArrayList<MyActivity> doInBackground(String... params) {
+
         String type = params[0];
         String language = params[1];
 
@@ -44,10 +48,10 @@ public class EmpAASync extends AsyncTask<String, Void, ArrayList<Employee>> {
         // String login_url = "http://192.168.14.157/ServerMeApp/login.php";
         String login_url = "http://servemeapp.000webhostapp.com//androidDataBaseQueries.php";
         // String notification_url = "http://securitymanagementapp.000webhostapp.com//send_notiofication.php";
-        if (type.equals("getEmployeeData")) {
-            typeToCheck = "getEmployeeData";
+        if (type.equals("getActivityData")) {
+            typeToCheck = "getActivityData";
             try {
-               // String language = params[1];
+                // String language = params[1];
 
                 URL url = new URL(login_url);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -61,7 +65,7 @@ public class EmpAASync extends AsyncTask<String, Void, ArrayList<Employee>> {
                 OutputStream outputStream = httpURLConnection.getOutputStream();
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
                 String post_date = URLEncoder.encode("lang", "UTF-8") + "=" + URLEncoder.encode(language, "UTF-8")
-                        + "&"+ URLEncoder.encode("todo", "UTF-8") + "=" + URLEncoder.encode("getEmployeeData", "UTF-8");
+                        + "&"+ URLEncoder.encode("todo", "UTF-8") + "=" + URLEncoder.encode("getActivityData", "UTF-8");
 
                 bufferedWriter.write(post_date);
                 bufferedWriter.flush();
@@ -98,7 +102,7 @@ public class EmpAASync extends AsyncTask<String, Void, ArrayList<Employee>> {
                 {
                     jo= ja.getJSONObject(i);
                     //the names of the string spouse to be the same in the phpmyadmin table (for now there is no table on the server).
-                    service.add(new Employee(jo.getString("id"),jo.getString("fname"),jo.getString("lname"),jo.getString("department"),jo.getString("imgstr")));
+                    myActivities.add(new MyActivity(jo.getString("activity"),jo.getString("description")));
                 }
 
 
@@ -108,7 +112,7 @@ public class EmpAASync extends AsyncTask<String, Void, ArrayList<Employee>> {
             {
 
             }
-            return service;
+            return myActivities;
         }
 
 
@@ -116,15 +120,18 @@ public class EmpAASync extends AsyncTask<String, Void, ArrayList<Employee>> {
     }
 
     @Override
-    protected void onPostExecute(ArrayList<Employee> strings) {
+    protected void onPostExecute(ArrayList<MyActivity> strings) {
         super.onPostExecute(strings);
-        service = strings;
-        if(typeToCheck == "getEmployeeData")
+        myActivities = strings;
+        if(typeToCheck == "getActivityData")
         {
-            Intent intent1 = new Intent("empIntent");
-            intent1.putExtra("result", service);
+            Intent intent1 = new Intent("ActivityIntent");
+            intent1.putExtra("result", myActivities);
             context.sendBroadcast(intent1);
 
         }
     }
+
+
 }
+

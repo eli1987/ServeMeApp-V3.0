@@ -5,28 +5,21 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class EmployeeRateingActivity extends Activity {
 
-    ArrayList<String> idArr = new ArrayList<>();
-    String login_url = "http://servemeapp.000webhostapp.com//androidDataBaseQueries.php";
+
     private EmpAASync EmpAASync;
-    private BackgroundWorker backgroundWorkerForUpdate;
     private BroadcastReceiver receiver;
-    private String updateResult;
-    private BroadcastReceiver updateReceiver;
+    private String roomNum;
     ArrayList<Employee>  result = new ArrayList<>();
     ArrayList<Employee> newUsers =new ArrayList<>();
     String workerNum;
@@ -39,6 +32,8 @@ public class EmployeeRateingActivity extends Activity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_employee_rateing);
 
+        roomNum = getIntent().getStringExtra("roomNum");
+
         ArrayList<Employee> employess = new ArrayList<Employee>();
         // Create the adapter to convert the array to views
         adapter = new EmployeeAdapter(this, employess);
@@ -50,7 +45,7 @@ public class EmployeeRateingActivity extends Activity {
         listView.setAdapter(adapter);
 
         EmpAASync = new EmpAASync(EmployeeRateingActivity.this);
-        EmpAASync.execute(type);
+        EmpAASync.execute(type, Locale.getDefault().getLanguage());
         registerReceiver(receiver =new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -61,15 +56,17 @@ public class EmployeeRateingActivity extends Activity {
                 {
                     newUsers.add(result.get(i));
                 }
-                //unregisterReceiver(receiver);
+
                 adapter.addAll(newUsers);
+                adapter.newUsers = newUsers;
+                adapter.context =EmployeeRateingActivity.this;
+                adapter.roomNum = roomNum;
                 listView.setAdapter(adapter);
                 unregisterReceiver(receiver);
             }
 
 
         }, new IntentFilter("empIntent"));
-
 
     }
 

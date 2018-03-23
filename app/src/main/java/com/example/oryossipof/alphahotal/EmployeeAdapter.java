@@ -19,16 +19,19 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import static com.example.oryossipof.alphahotal.InformationUtils.context;
 
 public class EmployeeAdapter  extends ArrayAdapter<Employee> {
-
+    public ArrayList<Employee> newUsers =new ArrayList<>();
     private int index;
     private ProgressDialog progress ;
     private BroadcastReceiver receiver;
     private String rate;
+    public String roomNum;
     private String empId;
+    public Context context;
     Employee emp;
     private RatingBar ratingBar;
     public EmployeeAdapter(Context context, ArrayList<Employee> activity) {
@@ -53,7 +56,7 @@ public class EmployeeAdapter  extends ArrayAdapter<Employee> {
         ImageView ImageStr = (ImageView) convertView.findViewById(R.id.employeeimageviewlayout);
         ratingBar = (RatingBar) convertView.findViewById(R.id.ratingBar) ;
         Button empRateBt = (Button) convertView.findViewById(R.id.button) ;
-
+        empRateBt.setTag(position);
 
         // Populate the data into the template view using the data object
 
@@ -61,35 +64,38 @@ public class EmployeeAdapter  extends ArrayAdapter<Employee> {
         lastName.setText(emp.lastname);
         department.setText(emp.deppartment);
         empId = emp.empId;
-        progress= new ProgressDialog(context);
+
 
 
         if(emp.imageStr != "" )
         Picasso.with(context).load("http://servemeapp.000webhostapp.com/"+emp.imageStr).fit().into(ImageStr);
         Log.e("number if pos",index+"");
 
+        final Object btTag = empRateBt.getTag();
+        Log.e("number if pos",index+"");
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            public void onRatingChanged(RatingBar ratingBar, float rating,
+                                        boolean fromUser) {
 
+                rate =String.valueOf(rating);
+                Log.e("number if pos",index+"");
+            }
+        });
+
+        rate = String.valueOf(ratingBar.getRating());
 
 
         empRateBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent;
-                  Log.e("number if pos",index+"");
-                ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-                    public void onRatingChanged(RatingBar ratingBar, float rating,
-                                                boolean fromUser) {
 
-                        rate =String.valueOf(rating);
-                        Log.e("number if pos",index+"");
-                    }
-                });
-
-               rate = String.valueOf(ratingBar.getRating());
                 Log.e("number if pos",index+"");
-                        BackgroundWorker bg = new BackgroundWorker(context);
-                        bg.execute("RateEmployee", empId ,rate);
 
+                        BackgroundWorker bg = new BackgroundWorker(context);
+                        int index = Integer.parseInt(btTag.toString());
+                        bg.execute("RateEmployee", newUsers.get(index).empId ,rate, Locale.getDefault().getLanguage(),roomNum);
+                        progress= new ProgressDialog(context);
                         progress.setMessage(context.getResources().getString(R.string.Delivring_request_str));
                         progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
                         progress.setIndeterminate(false);

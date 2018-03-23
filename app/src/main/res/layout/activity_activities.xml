@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:background="#000"
+    android:background="@drawable/act"
     android:orientation="vertical" >
 
     <TextView
@@ -14,10 +14,10 @@
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:textAlignment="center"
-        android:textColor="#fff"
+        android:textColor="#000"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:text="@string/activity_title_str"/>
+        android:text="@string/Activities_str"/>
 
     <ListView
         android:id="@+id/activityListView"

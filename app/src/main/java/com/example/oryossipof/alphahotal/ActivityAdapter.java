@@ -26,16 +26,13 @@ public class ActivityAdapter extends ArrayAdapter<MyActivity> {
         }
         // Lookup view for data population
         TextView title = (TextView) convertView.findViewById(R.id.activity_titleTv);
-        TextView loc = (TextView) convertView.findViewById(R.id.Activity_locationTv);
         TextView info = (TextView) convertView.findViewById(R.id.Activity_InfoTv);
-        TextView time = (TextView) convertView.findViewById(R.id.activity_houresTv);
+
         // Populate the data into the template view using the data object
 
-       /* roomnum.setText(request.roomNum);
-        req.setText(request.service);
-        //dep.setText(request.department);
-        time.setText(request.time);
-        */// Return the completed view to render on screen
+        title.setText(activity.activityName);
+        info.setText(activity.info);
+
         return convertView;
     }
 }

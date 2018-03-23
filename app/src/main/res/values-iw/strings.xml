@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AlphaHotal</string>
+    <string name="app_name">ServeMeApp</string>
     <string name="activity_info_str">מידע</string>
     <string name="activity_location_str">מיקום</string>
     <string name="activity_time_str">זמן</string>
@@ -101,4 +101,5 @@
     <string name="servicer_str">שירות</string>
     <string name="what_str">מה אתם חושבים עלינו?</string>
     <string name="ratebt_str">דרג</string>
+    <string name="Rate_emp_str">דרג את העובד</string>
 </resources>

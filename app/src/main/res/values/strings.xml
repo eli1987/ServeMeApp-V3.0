@@ -1,12 +1,12 @@
 <resources>
-    <string name="activity_title_str">Title</string>
+    <string name="activity_title_str">Activities</string>
     <string name="activity_time_str">Time</string>
     <string name="activity_info_str">Info</string>
     <string name="signup_title_str">Account Login</string>
     <string name="password_str">Password</string>
     <string name="username_str">Room number</string>
     <string name="signup_bt_str">Sign up</string>
-    <string name="app_name">AlphaHotal</string>
+    <string name="app_name">ServeMeApp</string>
     <string name="Reception_str">Reception</string>
     <string name="Housekeeping_str">Housekeeping</string>
     <string name="Security_str">Security</string>
@@ -78,7 +78,7 @@
     <string name="Number_of_passengers_str"> Number_of_passengers</string>
     <string name="Date_str">Date</string>
     <string name="Order_str">Order</string>
-
+    <string name="Rate_emp_str">Rate employee</string>
     <string name="login_result_str">Login Result</string>
     <string name="login_failed_str">Login Failed</string>
 

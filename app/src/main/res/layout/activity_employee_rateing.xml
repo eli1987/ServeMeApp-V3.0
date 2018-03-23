@@ -18,7 +18,7 @@
         android:textColor="#000"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:text="Rate employees"/>
+        android:text="@string/Rate_emp_str"/>
 
     <ListView
         android:id="@+id/employeeListView"

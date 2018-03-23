@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AlphaHotal</string>
+    <string name="app_name">ServeMeApp</string>
     <string name="activity_info_str">信息</string>
     <string name="activity_title_str">标题</string>
     <string name="activity_location_str">位置</string>
@@ -101,5 +101,6 @@
     <string name="cleanliness_str">清洁度</string>
     <string name="Quality_of_food_str">食物的质量</string>
     <string name="Comfort_str">安慰</string>
+    <string name="Rate_emp_str">评价员工</string>
 
 </resources>
