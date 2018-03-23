@@ -5,7 +5,8 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:background="#fff"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    >
 
     <TextView
         android:id="@+id/Employee_Tv"
@@ -22,5 +23,6 @@
     <ListView
         android:id="@+id/employeeListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+       />
 </LinearLayout>

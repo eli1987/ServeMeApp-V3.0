@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,7 @@ public class EmployeeAdapter  extends ArrayAdapter<Employee> {
     private String rate;
     private String empId;
     Employee emp;
+    private RatingBar ratingBar;
     public EmployeeAdapter(Context context, ArrayList<Employee> activity) {
         super(context, 0, activity);
     }
@@ -41,6 +43,7 @@ public class EmployeeAdapter  extends ArrayAdapter<Employee> {
         emp = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
+
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.employee_listview, parent, false);
         }
         // Lookup view for data population
@@ -48,7 +51,7 @@ public class EmployeeAdapter  extends ArrayAdapter<Employee> {
         TextView lastName = (TextView) convertView.findViewById(R.id.employeenLastNametextview);
         TextView department = (TextView) convertView.findViewById(R.id.employeeDepartmentextview);
         ImageView ImageStr = (ImageView) convertView.findViewById(R.id.employeeimageviewlayout);
-        RatingBar ratingBar = (RatingBar) convertView.findViewById(R.id.ratingBar) ;
+        ratingBar = (RatingBar) convertView.findViewById(R.id.ratingBar) ;
         Button empRateBt = (Button) convertView.findViewById(R.id.button) ;
 
 
@@ -62,24 +65,28 @@ public class EmployeeAdapter  extends ArrayAdapter<Employee> {
 
 
         if(emp.imageStr != "" )
-        Picasso.with(context).load("http://servemeapp.000webhostapp.com/"+emp.imageStr).into(ImageStr);
+        Picasso.with(context).load("http://servemeapp.000webhostapp.com/"+emp.imageStr).fit().into(ImageStr);
+        Log.e("number if pos",index+"");
 
-        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            public void onRatingChanged(RatingBar ratingBar, float rating,
-                                        boolean fromUser) {
 
-                rate =String.valueOf(rating);
 
-            }
-        });
-
-        rate = String.valueOf(ratingBar.getRating());
 
         empRateBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent;
+                  Log.e("number if pos",index+"");
+                ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+                    public void onRatingChanged(RatingBar ratingBar, float rating,
+                                                boolean fromUser) {
 
+                        rate =String.valueOf(rating);
+                        Log.e("number if pos",index+"");
+                    }
+                });
+
+               rate = String.valueOf(ratingBar.getRating());
+                Log.e("number if pos",index+"");
                         BackgroundWorker bg = new BackgroundWorker(context);
                         bg.execute("RateEmployee", empId ,rate);
 
@@ -113,7 +120,7 @@ public class EmployeeAdapter  extends ArrayAdapter<Employee> {
 
                             }
 
-                        }, new IntentFilter("RateEmployeeIntent"));
+                        }, new IntentFilter("RateIntent"));
 
 
 
