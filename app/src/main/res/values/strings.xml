@@ -114,6 +114,7 @@
         <item>Haifa and Acre</item>
         <item>Mitzpe Ramon and the south</item>
     </string-array>
+    <string name="already_rated_str">You have already rated today</string>
 
 
 </resources>

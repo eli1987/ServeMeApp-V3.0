@@ -102,4 +102,5 @@
     <string name="what_str">מה אתם חושבים עלינו?</string>
     <string name="ratebt_str">דרג</string>
     <string name="Rate_emp_str">דרג את העובד</string>
+    <string name="already_rated_str">בוצע דירוג היום</string>
 </resources>

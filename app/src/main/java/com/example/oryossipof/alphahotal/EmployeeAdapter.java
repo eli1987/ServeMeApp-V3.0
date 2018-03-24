@@ -21,8 +21,6 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.Locale;
 
-import static com.example.oryossipof.alphahotal.InformationUtils.context;
-
 public class EmployeeAdapter  extends ArrayAdapter<Employee> {
     public ArrayList<Employee> newUsers =new ArrayList<>();
     private int index;
@@ -69,16 +67,13 @@ public class EmployeeAdapter  extends ArrayAdapter<Employee> {
 
         if(emp.imageStr != "" )
         Picasso.with(context).load("http://servemeapp.000webhostapp.com/"+emp.imageStr).fit().into(ImageStr);
-        Log.e("number if pos",index+"");
 
         final Object btTag = empRateBt.getTag();
-        Log.e("number if pos",index+"");
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             public void onRatingChanged(RatingBar ratingBar, float rating,
                                         boolean fromUser) {
 
                 rate =String.valueOf(rating);
-                Log.e("number if pos",index+"");
             }
         });
 
@@ -90,7 +85,6 @@ public class EmployeeAdapter  extends ArrayAdapter<Employee> {
             public void onClick(View view) {
                 Intent intent;
 
-                Log.e("number if pos",index+"");
 
                         BackgroundWorker bg = new BackgroundWorker(context);
                         int index = Integer.parseInt(btTag.toString());
@@ -118,6 +112,13 @@ public class EmployeeAdapter  extends ArrayAdapter<Employee> {
                                     context.unregisterReceiver(receiver);
 
                                 }
+
+                                else if(result.equals("already rated!")) {
+                                    Toast.makeText(context,context.getResources().getString(R.string.already_rated_str), Toast.LENGTH_SHORT).show();
+                                    context.unregisterReceiver(receiver);
+
+                                }
+
                                 else
                                 {
                                     Toast.makeText(context, context.getResources().getString(R.string.Connection_error_try_again_later_str), Toast.LENGTH_SHORT).show();

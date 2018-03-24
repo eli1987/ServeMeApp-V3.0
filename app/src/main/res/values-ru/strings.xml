@@ -102,4 +102,5 @@
     <string name="Quality_of_food_str">Качество продуктов питания</string>
     <string name="Comfort_str">комфорт</string>
     <string name="Rate_emp_str">Оценить сотрудника</string>
+    <string name="already_rated_str">Вы оценили его сегодня</string>
 </resources>

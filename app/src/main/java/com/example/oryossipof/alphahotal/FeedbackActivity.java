@@ -6,7 +6,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -84,6 +83,15 @@ public class FeedbackActivity extends Activity {
                             context.unregisterReceiver(receiver);
 
                         }
+
+                        else if(result.equals("already rated!")) {
+                            Toast.makeText(context,context.getResources().getString(R.string.already_rated_str), Toast.LENGTH_SHORT).show();
+
+                            context.unregisterReceiver(receiver);
+
+                        }
+
+
                         else
                         {
                             Toast.makeText(context, context.getResources().getString(R.string.Connection_error_try_again_later_str), Toast.LENGTH_SHORT).show();

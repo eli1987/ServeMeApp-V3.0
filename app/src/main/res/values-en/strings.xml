@@ -102,4 +102,5 @@
     <string name="Quality_of_food_str">Quality of food</string>
     <string name="Comfort_str">Comfort</string>
     <string name="Rate_emp_str">Rate employee</string>
+    <string name="already_rated_str">You have already rated today</string>
 </resources>

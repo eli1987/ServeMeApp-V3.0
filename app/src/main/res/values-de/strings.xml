@@ -1,107 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ServeMeApp</string>
-    <string name="activity_title_str">Titel</string>
-    <string name="activity_time_str">Zeit</string>
-    <string name="activity_location_str">Ort</string>
-    <string name="activity_info_str">die Informationen</string>
-    <string name="password_str">Passwort</string>
-    <string name="signup_bt_str">Anmelden</string>
-    <string name="signup_title_str">Anmeldung</string>
-    <string name="username_str">Zimmernummer</string>
-    <string name="Feedback_str">Rückkopplung</string>
-    <string name="Housekeeping_str">Hauswirtschaft</string>
-    <string name="Information_str">Informationen</string>
-    <string name="Maintenance_str">Instandhaltung</string>
-    <string name="Reception_str">Rezeption</string>
-    <string name="Room_Service_str">Zimmerservice</string>
-    <string name="Security_str">Sicherheit</string>
-    <string name="fix_safe_str">"Einen Safe reparieren "</string>
-    <string name="open_safe_str">"Öffne einen Safe "</string>
-    <string name="bellboy_str">Page</string>
-    <string name="open_door_str">"öffne eine Tür "</string>
-    <string name="first_aid_str">"Erste Hilfe "</string>
-    <string name="call_str">Anruf</string>
-    <string name="power_failure_str">Stromausfall</string>
-    <string name="plumbing_fault_str">Klempnerfehler</string>
-    <string name="fix_door_str">"Fix Tür "</string>
-    <string name="fix_phone_str">"Telefon reparieren "</string>
-    <string name="Toiletries_str">"Toilettenartikel "</string>
-    <string name="Towel_str">"Handtuch "</string>
-    <string name="Paper_str">Papiertoilette</string>
-    <string name="baby_bed_str">Babybett</string>
-    <string name="bedding_str">Bettwäsche</string>
-    <string name="Clean_room_str">Sauberes Zimmer</string>
-    <string name="Coffee_str">Kaffee</string>
-    <string name="Hamburger_str">Hamburger</string>
-    <string name="Cola_str">Coca Cola</string>
-    <string name="Fish_str">Fisch</string>
-    <string name="Salmon_str">Lachs</string>
-    <string name="Cake_str">buchen</string>
-    <string name="Pizza_str">Pizza</string>
-    <string name="Sushi_str">Sushi</string>
-    <string name="Chicken_str">Hähnchen</string>
-    <string name="Water_str">Wasser</string>
-    <string name="Employees_Rating_str">"Mitarbeiter Bewertung "</string>
-    <string name="Food_Rating_str">"Essen Bewertung "</string>
-    <string name="Hotel_Feedback_str">Hotel Feedback</string>
-    <string name="book_trip_str">"Eine Reise buchen buchen "</string>
-    <string name="Recommend_tours_str">"Touren empfehlen "</string>
-    <string name="Recommend_restaurants_str">"Empfehlen Sie Restaurants "</string>
-    <string name="Get_Taxi_str">"Holen Sie sich ein Taxi "</string>
-    <string name="Wake_up_call_str">Weckruf</string>
-    <string name="Weather_str">Wetter</string>
-    <string name="Maps_str">Karten</string>
-    <string name="Flight_Times_str">Flugzeiten</string>
-    <string name="Shabbat_Hours_str">Schabbat Stunden</string>
-    <string name="Dinning_Hours_str">Essenszeiten</string>
-    <string name="Activities_str">"Aktivitäten "</string>
-    <string name="Pool_hours_str">Pool Stunden</string>
-    <string name="New_request_accepted_successfully_str">Anfrage erhalten</string>
-    <string name="Connection_error_try_again_later_str">Verbindungsfehler! Versuchen Sie es später noch einmal</string>
-    <string name="Delivring_request_str">Liefern Anfrage ...</string>
-    <string name="Book_a_Texi_str">Buchen Sie ein Taxi</string>
-    <string name="Destination_str">Ziel</string>
-    <string name="Number_of_passengers_str">Anzahl der Passagiere</string>
-    <string name="Date_str">Datum</string>
-    <string name="Order_str">Auftrag</string>
-    <string name="login_result_str">"Login Ergebnis "</string>
-    <string name="login_failed_str">Anmeldung fehlgeschlagen</string>
-    <string name="select_time_str">"Zeit auswählen "</string>
-    <string name="empty_date_str">Bitte füllen Sie die Felder für Datum und Uhrzeit aus</string>
-    <string name="telAviv_str">"Tel Aviv "</string>
-    <string name="jerusalem_str">"Jerusalem "</string>
+    <string name="activity_info_str">Информация</string>
+    <string name="activity_location_str">место нахождения</string>
+    <string name="activity_time_str">время</string>
+    <string name="activity_title_str">title</string>
+    <string name="password_str">пароль</string>
+    <string name="signup_bt_str">зарегистрироваться</string>
+    <string name="signup_title_str">Логин аккаунта</string>
+    <string name="username_str">Номер комнаты</string>
+    <string name="Security_str">Безопасность</string>
+    <string name="Room_Service_str">Обслуживание номеров</string>
+    <string name="Reception_str">"прием "</string>
+    <string name="Maintenance_str">Обслуживание</string>
+    <string name="Information_str">Информация</string>
+    <string name="Housekeeping_str">домоводство</string>
+    <string name="Feedback_str">Обратная связь</string>
+    <string name="fix_safe_str">"Исправить сейф "</string>
+    <string name="open_safe_str">"Открыть сейф "</string>
+    <string name="bellboy_str">коридорный</string>
+    <string name="open_door_str">"открыть дверь "</string>
+    <string name="first_aid_str">"первая помощь "</string>
+    <string name="call_str">вызов</string>
+    <string name="power_failure_str">Сбой питания</string>
+    <string name="plumbing_fault_str">Ошибка водопровода</string>
+    <string name="fix_door_str">"Закрепить дверь "</string>
+    <string name="fix_phone_str">"Исправить телефон "</string>
+    <string name="Toiletries_str">"Туалетные принадлежности "</string>
+    <string name="Towel_str">Полотенце</string>
+    <string name="Paper_str">"Бумажный туалет "</string>
+    <string name="baby_bed_str">"Детская кроватка "</string>
+    <string name="bedding_str">Постельные принадлежности</string>
+    <string name="Clean_room_str">Чистая комната</string>
+    <string name="Coffee_str">Кофе</string>
+    <string name="Hamburger_str">гамбургер</string>
+    <string name="Cola_str">"Кока-Кола "</string>
+    <string name="Fish_str">Рыба</string>
+    <string name="Salmon_str">лосось</string>
+    <string name="Cake_str">Кекс</string>
+    <string name="Pizza_str">Пицца</string>
+    <string name="Sushi_str">Суши</string>
+    <string name="Chicken_str">Курица</string>
+    <string name="Water_str">воды</string>
+    <string name="Employees_Rating_str">"Рейтинг сотрудников "</string>
+    <string name="Food_Rating_str">Рейтинг продуктов питания</string>
+    <string name="Hotel_Feedback_str">"Отзывы об отеле "</string>
+    <string name="book_trip_str">"Забронировать поездку "</string>
+    <string name="Recommend_tours_str">"Рекомендовать туры "</string>
+    <string name="Recommend_restaurants_str">Рекомендовать рестораны</string>
+    <string name="Get_Taxi_str">Получить такси</string>
+    <string name="Wake_up_call_str">Звонок</string>
+    <string name="Weather_str">Погода</string>
+    <string name="Maps_str">Карты</string>
+    <string name="Flight_Times_str">Время полета</string>
+    <string name="Shabbat_Hours_str">Шаббат Часы</string>
+    <string name="Dinning_Hours_str">Часы работы</string>
+    <string name="Activities_str">"мероприятия "</string>
+    <string name="Pool_hours_str">Часы в бассейне</string>
+    <string name="New_request_accepted_successfully_str">Полученный запрос</string>
+    <string name="Connection_error_try_again_later_str">Ошибка подключения! Попробуйте позже</string>
+    <string name="Delivring_request_str">Поставка запроса ....</string>
+    <string name="Book_a_Texi_str">Забронировать такси</string>
+    <string name="Destination_str">Место назначения</string>
+    <string name="Number_of_passengers_str">Количество пассажиров</string>
+    <string name="Date_str">Дата</string>
+    <string name="Order_str">порядок</string>
+    <string name="login_result_str">"Результат входа "</string>
+    <string name="login_failed_str">Авторизация не удалась</string>
+    <string name="select_time_str">выбрать время</string>
+    <string name="empty_date_str">Заполните поля даты и времени.</string>
+    <string name="telAviv_str">"Тель-Авив "</string>
+    <string name="jerusalem_str">Иерусалим</string>
     <string name="haifa_str">Haifa</string>
-    <string name="benGurion_str">"Ben Gurion Lufthafen "</string>
-    <string name="eilat_str">Eilat</string>
-    <string name="batyam_str">Bat Yam</string>
-    <string name="otherDest_str">andere</string>
-    <string name="tooManyRequests_str">"Zu viele offene Anfragen von demselben Dienst "</string>
-    <string name="not_occupied_str">"Dieses Zimmer ist nicht besetzt "</string>
-    <string name="Book_a_Trip_str">Eine Reise buchen</string>
+    <string name="benGurion_str">Воздушный порт Бен-Гурион</string>
+    <string name="eilat_str">Эйлат</string>
+    <string name="batyam_str">Бат Ям</string>
+    <string name="otherDest_str">Другие</string>
+    <string name="tooManyRequests_str">"Слишком много открытых запросов от одной и той же службы "</string>
+    <string name="not_occupied_str">"Этот номер не занят "</string>
+    <string name="Book_a_Trip_str">Забронировать поездку</string>
 
     <string-array name="desArray">
-        <item>Totes Meer</item>
-        <item>JJerusalem und die Altstadt</item>
-        <item>Tel Aviv und Jaffa</item>
-        <item>Tiberias und See Genezareth</item>
-        <item>Caesarea</item>
-        <item>Haifa und Akko</item>
-        <item>Mitzpe Ramon und der Süden</item>
+        <item>Мертвое море</item>
+        <item>Иерусалим и старый город</item>
+        <item>Tel-aviv and Jaffa</item>
+        <item>Тель-Авив и Яффо</item>
+        <item>Кейсария</item>
+        <item>Хайфа и Акко</item>
+        <item>Мицпе Рамон и юг</item>
     </string-array>
-    <string name="wakeUp_call_str">Weckruf</string>
-    <string name="poolhours_str">Pool Stunden</string>
-    <string name="dininghours_str">Esszimmer Stunden</string>
-    <string name="New_Rate_accepted_successfully_str">Ihre Bewertung wurde akzeptiert</string>
-    <string name="ratebt_str">Bewertung</string>
-    <string name="servicer_str">Bedienung</string>
-    <string name="what_str">Was denkst du über uns ?</string>
-    <string name="check_in_Str">Check In</string>
-    <string name="check_out_str">Check out</string>
-    <string name="cleanliness_str">Sauberkeit</string>
-    <string name="Quality_of_food_str">Qualität des Essens</string>
-    <string name="Comfort_str">Komfort</string>
-    <string name="Rate_emp_str">Bewerten Sie den Mitarbeiter</string>
-
-
+    <string name="wakeUp_call_str">звонок для пробуждения</string>
+    <string name="poolhours_str">Часы в бассейне</string>
+    <string name="dininghours_str">столовая</string>
+    <string name="New_Rate_accepted_successfully_str">Ваш рейтинг принят</string>
+    <string name="ratebt_str">ставка</string>
+    <string name="servicer_str">обслуживание</string>
+    <string name="what_str">Что вы думаете о нас?</string>
+    <string name="check_in_Str">Регистрироваться</string>
+    <string name="check_out_str">Проверять, выписываться</string>
+    <string name="cleanliness_str">чистота</string>
+    <string name="Quality_of_food_str">Качество продуктов питания</string>
+    <string name="Comfort_str">комфорт</string>
+    <string name="Rate_emp_str">Оценить сотрудника</string>
+    <string name="already_rated_str">Du hast es heute schon bewertet</string>
 </resources>

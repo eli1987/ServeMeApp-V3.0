@@ -102,6 +102,7 @@
     <string name="Quality_of_food_str">Qualité de la nourriture</string>
     <string name="Comfort_str">Confort</string>
     <string name="Rate_emp_str">Noter l\'employé</string>
+    <string name="already_rated_str">Vous avez déjà noté aujourd\'hui</string>
 
 
 </resources>

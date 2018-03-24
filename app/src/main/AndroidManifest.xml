@@ -71,7 +71,9 @@
         <activity
             android:name=".DiningHoursActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".EmployeeRateingActivity"></activity>
+        <activity android:name=".EmployeeRateingActivity"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>
