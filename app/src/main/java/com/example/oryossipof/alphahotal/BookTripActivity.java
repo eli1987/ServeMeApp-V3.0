@@ -39,11 +39,9 @@ public class BookTripActivity extends Activity {
     private String department = "Reception";
     private BroadcastReceiver receiver;
     private String des="";
-    private String time="";
     private String dest = "";
     private String pass = "";
     private Spinner spinner;
-    private int valid =0 ;
     private int index=0;
     private String[] destList = {"Dead sea", "Jerusalem and old city" , "Tel-aviv and Jafa", "Tiberias and Sea of Galilee", "Caesarea", "Mitzpe Ramon and the south"};
 
@@ -69,8 +67,6 @@ public class BookTripActivity extends Activity {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear,
                                   int dayOfMonth) {
-                // TODO Auto-generated method stub
-                //view.setMinDate(System.currentTimeMillis() - 1000);
                 myCalendar.set(Calendar.YEAR, year);
                 myCalendar.set(Calendar.MONTH, monthOfYear);
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
@@ -86,7 +82,6 @@ public class BookTripActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stu
                 picker = new DatePickerDialog(BookTripActivity.this, date, myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                         myCalendar.get(Calendar.DAY_OF_MONTH));
@@ -98,49 +93,18 @@ public class BookTripActivity extends Activity {
             }
         });
 
-        /*
-        final EditText Edit_Time = (EditText) findViewById(R.id.time_view_edit);
 
-        Edit_Time.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                Calendar mcurrentTime = Calendar.getInstance();
-                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
-                int minute = mcurrentTime.get(Calendar.MINUTE);
-
-                TimePickerDialog mTimePicker;
-                mTimePicker = new TimePickerDialog(BookTripActivity.this, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-
-                        Edit_Time.setText(selectedHour + ":" + selectedMinute);
-                        time = Edit_Time.getText().toString();
-                        valid++;
-
-                    }
-                    Calendar mcurrentTime = Calendar.getInstance();
-                }, hour, minute, true);
-                mTimePicker.setTitle(getResources().getString(R.string.select_time_str)); // add to strings  for all lang
-                mTimePicker.show();
-
-            }
-        });
-*/
         //set spinner
         final Spinner spinner = (Spinner) findViewById(R.id.spinner_ip);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-               // dest = spinner.getSelectedItem().toString();
                 index = spinner.getSelectedItemPosition();
                 dest = destList[index];
 
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-               // dest = spinner.getSelectedItem().toString();
                 index = spinner.getSelectedItemPosition();
                 dest = destList[index];
 
@@ -163,15 +127,12 @@ public class BookTripActivity extends Activity {
         bookTripBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-             //   if (edittext.getText().length() == 0 || valid <2)
                 if (edittext.getText().length() == 0)
                 {
                     Toast.makeText(BookTripActivity.this, getResources().getString(R.string.empty_date_str), Toast.LENGTH_SHORT).show();
                     return;
                 }
-                //time = Edit_Time.getText().toString();
                 BackgroundWorker bg = new BackgroundWorker(BookTripActivity.this);
-             //   des = edittext.getText().toString() + " "+ time + " " + destList[spinner.getSelectedItemPosition()] + ", " + pass + " Passengers";
                 des = edittext.getText().toString() + " " + destList[spinner.getSelectedItemPosition()] + ", " + pass + " Passengers";
                 bg.execute("insertNewRequest",roomNum,department,"Order Trip",des);
                 progress.setMessage(getResources().getString(R.string.Delivring_request_str));
@@ -189,7 +150,6 @@ public class BookTripActivity extends Activity {
 
                         progress.setProgress(100);
                         progress.dismiss();
-                        //alertDialog.show();
                         if(result.equals("New requests accepted successfully")) {
                             Toast.makeText(BookTripActivity.this, getResources().getString(R.string.New_request_accepted_successfully_str), Toast.LENGTH_SHORT).show();
 
@@ -226,7 +186,7 @@ public class BookTripActivity extends Activity {
 
     private void updateLabel() {
 
-        String myFormat = "MM/dd/yy"; //In which you need put here
+        String myFormat = "MM/dd/yy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
         edittext.setText(sdf.format(myCalendar.getTime()));

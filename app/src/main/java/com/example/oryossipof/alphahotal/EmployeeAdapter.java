@@ -83,7 +83,6 @@ public class EmployeeAdapter  extends ArrayAdapter<Employee> {
         empRateBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent;
 
 
                         BackgroundWorker bg = new BackgroundWorker(context);
@@ -105,7 +104,6 @@ public class EmployeeAdapter  extends ArrayAdapter<Employee> {
                                 String result = (String) intent.getExtras().getString("result");
                                 progress.setProgress(100);
                                 progress.dismiss();
-                                //alertDialog.show();
                                 if(result.equals("New requests accepted successfully")) {
                                     Toast.makeText(context, context.getResources().getString(R.string.New_Rate_accepted_successfully_str), Toast.LENGTH_SHORT).show();
 

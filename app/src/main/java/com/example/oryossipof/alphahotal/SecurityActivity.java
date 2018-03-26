@@ -24,7 +24,7 @@ public class SecurityActivity extends Activity {
     private BroadcastReceiver receiver;
     private String roomNum;
     private ProgressDialog progress ;
-    private int [] drawable = {R.drawable.safe,R.drawable.bellboy,R.drawable.opendor,R.drawable.firstaid,R.drawable.calll};
+    private int [] drawable = {R.drawable.safe2,R.drawable.bellboy3,R.drawable.door_round,R.drawable.firstaid_round,R.drawable.calll};
     String security[];
     String securityDesc[] = {"Open Safe", "BellBoy", "Open Door", "First Aid", "Call"};
 
@@ -114,7 +114,6 @@ public class SecurityActivity extends Activity {
                                     String result = (String) intent.getExtras().getString("result");
                                     progress.setProgress(100);
                                     progress.dismiss();
-                                    //alertDialog.show();
                                     if(result.equals("New requests accepted successfully")) {
                                         Toast.makeText(SecurityActivity.this, getResources().getString(R.string.New_request_accepted_successfully_str), Toast.LENGTH_SHORT).show();
 

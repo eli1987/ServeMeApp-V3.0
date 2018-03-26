@@ -15,7 +15,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class ReceptionActivity extends Activity {
-    private String telNumber ="035433333";
     private ProgressDialog progress ;
     private String roomNum;
     private int [] drawableName = {R.drawable.call3,R.drawable.trip,R.drawable.tour,R.drawable.food,R.drawable.taxi,R.drawable.weakup};

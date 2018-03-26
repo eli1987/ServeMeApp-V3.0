@@ -29,7 +29,6 @@ public class EmpAASync extends AsyncTask<String, Void, ArrayList<Employee>> {
     AlertDialog alertDialog;
     String result = null;
     ArrayList<Employee> service = new ArrayList<Employee>();
-    ArrayList<String> copyservice = new ArrayList<String>();
 
     EmpAASync(Context ctx) {
         context = ctx;
@@ -40,10 +39,9 @@ public class EmpAASync extends AsyncTask<String, Void, ArrayList<Employee>> {
         String type = params[0];
         String language = params[1];
 
-        // String login_url = "http://10.0.2.2/security/fcm_insert.php";
+
         // String login_url = "http://192.168.14.157/ServerMeApp/login.php";
         String login_url = "http://servemeapp.000webhostapp.com//androidDataBaseQueries.php";
-        // String notification_url = "http://securitymanagementapp.000webhostapp.com//send_notiofication.php";
         if (type.equals("getEmployeeData")) {
             typeToCheck = "getEmployeeData";
             try {
@@ -97,7 +95,6 @@ public class EmpAASync extends AsyncTask<String, Void, ArrayList<Employee>> {
                 for(int i = 0 ; i <ja.length();i++)
                 {
                     jo= ja.getJSONObject(i);
-                    //the names of the string spouse to be the same in the phpmyadmin table (for now there is no table on the server).
                     service.add(new Employee(jo.getString("id"),jo.getString("fname"),jo.getString("lname"),jo.getString("department"),jo.getString("imgstr")));
                 }
 

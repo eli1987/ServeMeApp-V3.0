@@ -46,7 +46,6 @@ public class SigninActivity extends Activity {
                     public void onReceive(Context context, Intent intent) {
                         String result = (String)intent.getExtras().getString("result");
 
-                        //alertDialog.show();
                         if(result.equals("login success")) {
                             //////////////////////////////////////////
                             // need to check if the user has done questionnaires before/

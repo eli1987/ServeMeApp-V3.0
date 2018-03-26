@@ -40,10 +40,9 @@ public class AASync extends AsyncTask<String, Void,  ArrayList<HotelService>> {
 
         String type = params[0];
 
-        // String login_url = "http://10.0.2.2/security/fcm_insert.php";
         // String login_url = "http://192.168.14.157/ServerMeApp/login.php";
+
         String login_url = "http://servemeapp.000webhostapp.com//androidDataBaseQueries.php";
-        // String notification_url = "http://securitymanagementapp.000webhostapp.com//send_notiofication.php";
          if (type.equals("getService")) {
             typeToCheck = "getService";
             try {
@@ -97,7 +96,6 @@ public class AASync extends AsyncTask<String, Void,  ArrayList<HotelService>> {
                 for(int i = 0 ; i <ja.length();i++)
                 {
                     jo= ja.getJSONObject(i);
-                    //the names of the string spouse to be the same in the phpmyadmin table (for now there is no table on the server).
                     copyservice.add(jo.getString("description"));
                 }
 

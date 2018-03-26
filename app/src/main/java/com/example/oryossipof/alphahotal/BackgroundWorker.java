@@ -32,10 +32,8 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
     protected String doInBackground(String... params) {
         String type = params[0];
 
-        // String login_url = "http://10.0.2.2/security/fcm_insert.php";
         // String login_url = "http://192.168.14.157/ServerMeApp/login.php";
         String login_url = "http://servemeapp.000webhostapp.com//androidDataBaseQueries.php";
-        // String notification_url = "http://securitymanagementapp.000webhostapp.com//send_notiofication.php";
         if (type.equals("login")) {
             typeToCheck = "login";
             String result = handleBack(type, params, login_url);
@@ -208,9 +206,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
                 } else
                     post_date += "&" + URLEncoder.encode("params" + i, "UTF-8") + "=" + URLEncoder.encode(params[i], "UTF-8");
             }
-               /* String post_date = URLEncoder.encode("room_num", "UTF-8") + "=" + URLEncoder.encode(roomNum, "UTF-8")
-                        + "&"+ URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8")
-                        + "&"+ URLEncoder.encode("todo", "UTF-8") + "=" + URLEncoder.encode("login", "UTF-8");*/
+
 
             bufferedWriter.write(post_date);
             bufferedWriter.flush();

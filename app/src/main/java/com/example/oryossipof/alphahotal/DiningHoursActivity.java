@@ -24,7 +24,7 @@ public class DiningHoursActivity extends Activity {
         TextView dininghours = (TextView) findViewById(R.id.diningtextview);
 
         Paint paint = new Paint();
-        float width = paint.measureText(InformationUtils.DINING_HOURS);  // maybe to do this in other class and than we can prevent duplicate code
+        float width = paint.measureText(InformationUtils.DINING_HOURS);
         int maxLength = 17;
         if (width > maxLength) {
             List<String> arrayList = null;

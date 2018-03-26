@@ -21,9 +21,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
-/**
- * Created by אלי on 23/03/2018.
- */
+
 
 public class ActivityAASync extends AsyncTask<String, Void, ArrayList<MyActivity>> {
 
@@ -32,7 +30,6 @@ public class ActivityAASync extends AsyncTask<String, Void, ArrayList<MyActivity
     AlertDialog alertDialog;
     String result = null;
     ArrayList<MyActivity> myActivities = new ArrayList<MyActivity>();
-    ArrayList<String> copyservice = new ArrayList<String>();
 
     ActivityAASync(Context ctx) {
         context = ctx;
@@ -44,10 +41,10 @@ public class ActivityAASync extends AsyncTask<String, Void, ArrayList<MyActivity
         String type = params[0];
         String language = params[1];
 
-        // String login_url = "http://10.0.2.2/security/fcm_insert.php";
+
         // String login_url = "http://192.168.14.157/ServerMeApp/login.php";
         String login_url = "http://servemeapp.000webhostapp.com//androidDataBaseQueries.php";
-        // String notification_url = "http://securitymanagementapp.000webhostapp.com//send_notiofication.php";
+
         if (type.equals("getActivityData")) {
             typeToCheck = "getActivityData";
             try {
@@ -101,7 +98,6 @@ public class ActivityAASync extends AsyncTask<String, Void, ArrayList<MyActivity
                 for(int i = 0 ; i <ja.length();i++)
                 {
                     jo= ja.getJSONObject(i);
-                    //the names of the string spouse to be the same in the phpmyadmin table (for now there is no table on the server).
                     myActivities.add(new MyActivity(jo.getString("activity"),jo.getString("description")));
                 }
 

@@ -23,7 +23,6 @@ public class  ActivitiesActivity extends Activity {
     ArrayList<MyActivity>  result = new ArrayList<>();
     ArrayList<MyActivity> newUsers =new ArrayList<>();
 
-    ActivityAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

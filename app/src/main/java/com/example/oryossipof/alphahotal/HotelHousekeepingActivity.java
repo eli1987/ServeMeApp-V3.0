@@ -95,7 +95,6 @@ public class HotelHousekeepingActivity extends Activity {
 
                             progress.setProgress(100);
                             progress.dismiss();
-                            //alertDialog.show();
                             if(result.equals("New requests accepted successfully")) {
                                 Toast.makeText(HotelHousekeepingActivity.this, getResources().getString(R.string.New_request_accepted_successfully_str), Toast.LENGTH_SHORT).show();
 

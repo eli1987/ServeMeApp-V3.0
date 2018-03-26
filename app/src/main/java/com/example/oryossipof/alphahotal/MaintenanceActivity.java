@@ -84,12 +84,10 @@ public class MaintenanceActivity extends Activity {
 
                     switch (index) {
                         case 5:
-                            // startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("035433333")));
                             CallService.callPhoneNumber(MaintenanceActivity.this, InformationUtils.MAINTENANCE_CALL);
                             break;
 
                         default:
-                            Intent intent;
                             BackgroundWorker bg = new BackgroundWorker(MaintenanceActivity.this);
                             bg.execute("insertNewRequest", roomNum, department, maintenanceDesc[index], "");
                             progress.setMessage(getResources().getString(R.string.Delivring_request_str));
@@ -109,7 +107,6 @@ public class MaintenanceActivity extends Activity {
                                     progress.setProgress(100);
                                     progress.dismiss();
 
-                                    //alertDialog.show();
                                     if (result.equals("New requests accepted successfully")) {
                                         Toast.makeText(MaintenanceActivity.this, getResources().getString(R.string.New_request_accepted_successfully_str), Toast.LENGTH_SHORT).show();
 

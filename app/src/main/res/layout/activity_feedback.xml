@@ -20,6 +20,7 @@ android:background="@drawable/feedbg" >
         android:textSize="24sp"
         android:textStyle="bold" />
 
+
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
@@ -141,11 +142,56 @@ android:background="@drawable/feedbg" >
         android:layout_height="wrap_content" />
 
 
+    <TextView
+        android:id="@+id/didtheappHelpTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Did the app make your hotel stay better?"
+        android:textColor="#080909"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:typeface="monospace" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <RadioGroup
+            android:id="@+id/group1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <RadioButton
+                android:button="@null"
+                android:id="@+id/Yesbt"
+                android:drawableStart="@android:drawable/btn_radio"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Yes" />
+
+            <RadioButton
+                android:button="@null"
+                android:id="@+id/Nobt"
+                android:drawableStart="@android:drawable/btn_radio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+
+
     <Button
         android:id="@+id/feedback_page_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/ratebt_str" />
+
 
 
 </LinearLayout>

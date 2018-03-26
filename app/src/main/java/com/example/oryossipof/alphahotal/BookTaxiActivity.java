@@ -41,7 +41,7 @@ public class BookTaxiActivity extends Activity {
     private  BroadcastReceiver receiver;
     private String des="";
     private String time="";
-    private String dest = "";
+    private String dest ;
     private String pass = "";
     private Spinner spinner;
     private EditText Edit_Time ;
@@ -70,8 +70,6 @@ public class BookTaxiActivity extends Activity {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear,
                                   int dayOfMonth) {
-                // TODO Auto-generated method stub
-               //view.setMinDate(System.currentTimeMillis() - 1000);
                 myCalendar.set(Calendar.YEAR, year);
                 myCalendar.set(Calendar.MONTH, monthOfYear);
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
@@ -87,7 +85,6 @@ public class BookTaxiActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stu
                 valid = 0;
                 picker = new DatePickerDialog(BookTaxiActivity.this, date, myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
@@ -106,7 +103,6 @@ public class BookTaxiActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 mcurrentTime = Calendar.getInstance();
                 final int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
                 int minute = mcurrentTime.get(Calendar.MINUTE);
@@ -140,7 +136,7 @@ public class BookTaxiActivity extends Activity {
 
 
                 }, hour, minute, true);
-                mTimePicker.setTitle(getResources().getString(R.string.select_time_str)); // add to strings  for all lang
+                mTimePicker.setTitle(getResources().getString(R.string.select_time_str));
                 mTimePicker.show();
 
             }

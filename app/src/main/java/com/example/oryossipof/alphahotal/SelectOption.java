@@ -1,8 +1,6 @@
 package com.example.oryossipof.alphahotal;
 
-/**
- * Created by or yossipof on 02/12/2017.
- */
+
 
 public class SelectOption {
 

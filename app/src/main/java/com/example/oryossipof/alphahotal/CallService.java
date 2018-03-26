@@ -9,9 +9,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 
-/**
- * Created by or yossipof on 05/03/2018.
- */
 
 public class CallService {
 
@@ -22,7 +19,6 @@ public class CallService {
             if(Build.VERSION.SDK_INT > 22)
             {
                 if (ActivityCompat.checkSelfPermission(ctx, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                    // TODO: Consider calling
 
                     ActivityCompat.requestPermissions((Activity) ctx, new String[]{Manifest.permission.CALL_PHONE}, 101);
 

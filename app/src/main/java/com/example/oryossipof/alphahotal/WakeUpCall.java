@@ -62,8 +62,7 @@ public class WakeUpCall extends Activity {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear,
                                   int dayOfMonth) {
-                // TODO Auto-generated method stub
-                //view.setMinDate(System.currentTimeMillis() - 1000);
+
                 myCalendar.set(Calendar.YEAR, year);
                 myCalendar.set(Calendar.MONTH, monthOfYear);
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
@@ -79,7 +78,7 @@ public class WakeUpCall extends Activity {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stu
+
                 valid = 0 ;
                 picker = new DatePickerDialog(WakeUpCall.this, date, myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
@@ -98,7 +97,7 @@ public class WakeUpCall extends Activity {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
+
                 mcurrentTime = Calendar.getInstance();
                 final int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
                 int minute = mcurrentTime.get(Calendar.MINUTE);

@@ -18,12 +18,11 @@ import android.widget.Toast;
 
 public class RoomServiceActivity extends Activity {
     private BroadcastReceiver receiver;
-    private String telNumber = "035433333";
     private String department = "RoomService";
     private String roomNum;
     private ListView mListView ;
     private Context context;
-    private int [] drawableName= {R.drawable._2,R.drawable.coffee,R.drawable.cola,R.drawable.fish,R.drawable.salmon,R.drawable._2,R.drawable.pizza,R.drawable.susi,R.drawable.c,R.drawable.water,R.drawable.calll};
+    private int [] drawableName= {R.drawable.hamburger_round,R.drawable.coffe_round,R.drawable.coke_round,R.drawable.fish_round,R.drawable.salmaon_round,R.drawable.cake_round,R.drawable.pizza_round,R.drawable.sushi,R.drawable.cheicken_round,R.drawable.water_round,R.drawable.calll};
     private String foodmenuDesc[] = {"Hamburger","Coffee","Cola","Fish","Salmon","Cake","Pizza","Sushi","Chicken","Water","Call"};
     private String foodmenu[];
 
@@ -87,7 +86,6 @@ public class RoomServiceActivity extends Activity {
                     switch(index)
                     {
                         case 10:
-                            // startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("035433333")));
                             CallService.callPhoneNumber(RoomServiceActivity.this,InformationUtils.ROOM_SERVICE_CALL);
 
                             break;
@@ -110,7 +108,6 @@ public class RoomServiceActivity extends Activity {
                                     String result = (String) intent.getExtras().getString("result");
                                     progress.setProgress(100);
                                     progress.dismiss();
-                                    //alertDialog.show();
                                     if(result.equals("New requests accepted successfully")) {
                                         Toast.makeText(RoomServiceActivity.this, getResources().getString(R.string.New_request_accepted_successfully_str), Toast.LENGTH_SHORT).show();
 

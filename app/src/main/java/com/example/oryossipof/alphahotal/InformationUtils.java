@@ -9,9 +9,6 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Locale;
 
-/**
- * Created by or yossipof on 22/03/2018.
- */
 
 public class InformationUtils {
     static String PoolHours;
@@ -39,7 +36,6 @@ public class InformationUtils {
     {
         String type = "getService";
         String CurrentLang = Locale.getDefault().getLanguage();
-        // startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("035433333")));
         AASync AASync = new AASync(ctx);
         AASync.execute(type,CurrentLang);
         context = ctx;
