@@ -103,4 +103,7 @@
     <string name="Comfort_str">комфорт</string>
     <string name="Rate_emp_str">Оценить сотрудника</string>
     <string name="already_rated_str">Du hast es heute schon bewertet</string>
+    <string name="didhelp_str">Hat die Nutzung der App zu Ihrem Aufenthalt im Hotel beigetragen?</string>
+    <string name="Yes_str">Ja</string>
+    <string name="No_str">Nein</string>
 </resources>

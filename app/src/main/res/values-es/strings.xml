@@ -103,5 +103,8 @@
     <string name="Comfort_str">Comodidad</string>
     <string name="Rate_emp_str">Empleado de tarifa</string>
     <string name="already_rated_str">Ya has calificado hoy</string>
+    <string name="No_str">No</string>
+    <string name="Yes_str">Si</string>
+    <string name="didhelp_str">¿El uso de la aplicación contribuyó a su estadía en el hotel?</string>
 
 </resources>

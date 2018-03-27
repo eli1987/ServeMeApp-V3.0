@@ -94,8 +94,9 @@
     <string name="servicer_str">Service</string>
     <string name="what_str">What do you think about us ?</string>
     <string name="ratebt_str">Rate</string>
-
-
+    <string name="didhelp_str">Did using the app contribute to your stay at the hotel?</string>
+    <string name="Yes_str">Yes</string>
+    <string name="No_str">No</string>
 
     <string-array name="passArray">
         <item>1</item>

@@ -146,7 +146,7 @@ android:background="@drawable/feedbg" >
         android:id="@+id/didtheappHelpTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Did the app make your hotel stay better?"
+        android:text="@string/didhelp_str"
         android:textColor="#080909"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -170,7 +170,7 @@ android:background="@drawable/feedbg" >
                 android:drawableStart="@android:drawable/btn_radio"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Yes" />
+                android:text="@string/Yes_str" />
 
             <RadioButton
                 android:button="@null"
@@ -178,7 +178,7 @@ android:background="@drawable/feedbg" >
                 android:drawableStart="@android:drawable/btn_radio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="No" />
+                android:text="@string/No_str" />
 
         </RadioGroup>
 

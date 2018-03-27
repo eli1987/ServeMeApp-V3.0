@@ -103,5 +103,8 @@
     <string name="Comfort_str">安慰</string>
     <string name="Rate_emp_str">评价员工</string>
     <string name="already_rated_str">您已经在今天评分</string>
+    <string name="didhelp_str">使用该应用程序是否有助于您入住酒店？</string>
+    <string name="Yes_str">是</string>
+    <string name="No_str">没有</string>
 
 </resources>

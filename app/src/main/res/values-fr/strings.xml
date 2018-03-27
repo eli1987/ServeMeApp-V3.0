@@ -103,6 +103,9 @@
     <string name="Comfort_str">Confort</string>
     <string name="Rate_emp_str">Noter l\'employé</string>
     <string name="already_rated_str">Vous avez déjà noté aujourd\'hui</string>
+    <string name="didhelp_str">L\'utilisation de l\'application a-t-elle contribué à votre séjour à l\'hôtel?</string>
+    <string name="Yes_str">Oui</string>
+    <string name="No_str">Non</string>
 
 
 </resources>
