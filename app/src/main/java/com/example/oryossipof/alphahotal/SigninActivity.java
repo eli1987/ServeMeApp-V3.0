@@ -75,6 +75,9 @@ public class SigninActivity extends Activity {
                                     }
                                     else
                                     {
+
+                                        unregisterReceiver(receiver);
+                                        unregisterReceiver(receiver2);
                                         Intent intent1 = new Intent(SigninActivity.this, questionnairesActivity.class).putExtra("roomNum",roomNum.getText().toString());
                                         startActivity(intent1);
                                         try {
@@ -82,8 +85,6 @@ public class SigninActivity extends Activity {
                                         } catch (Throwable throwable) {
                                             throwable.printStackTrace();
                                         }
-                                        unregisterReceiver(receiver);
-                                        unregisterReceiver(receiver2);
                                         finish();
                                     }
 

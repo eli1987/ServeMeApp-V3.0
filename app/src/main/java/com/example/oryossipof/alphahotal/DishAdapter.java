@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +39,7 @@ public class DishAdapter extends ArrayAdapter<Dish> {
 
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
         index = position;
         dish = getItem(position);
@@ -56,6 +57,7 @@ public class DishAdapter extends ArrayAdapter<Dish> {
 
         dishtName.setText(dish.dishName);
         dishId = dish.dishId;
+        Log.e("Dish",dishId+"");
 
 
 
@@ -69,7 +71,8 @@ public class DishAdapter extends ArrayAdapter<Dish> {
             @Override
             public void onClick(View view) {
 
-                String id = String.valueOf(newDish.get(index).dishId);
+                String id = String.valueOf(newDish.get(position).dishId);
+                Log.e("Dish",dishId+"");
 
                 BackgroundWorker bg = new BackgroundWorker(context);
                 int index = Integer.parseInt(btTag.toString());
@@ -91,7 +94,6 @@ public class DishAdapter extends ArrayAdapter<Dish> {
                         progress.dismiss();
                         if(result.equals("Record updated successfully")) {
                             Toast.makeText(context, context.getResources().getString(R.string.New_Rate_accepted_successfully_str), Toast.LENGTH_SHORT).show();
-
                             context.unregisterReceiver(receiver2);
 
                         }
@@ -106,8 +108,6 @@ public class DishAdapter extends ArrayAdapter<Dish> {
                             Toast.makeText(context, context.getResources().getString(R.string.Connection_error_try_again_later_str), Toast.LENGTH_SHORT).show();
                             context.unregisterReceiver(receiver2);
                         }
-
-
                     }
 
                 }, new IntentFilter("rateDish"));

@@ -24,6 +24,7 @@ public class questionnairesActivity extends Activity {
     private EditText originText;
     private TextView err;
     private BroadcastReceiver receiver;
+    private  String roonNum;
 
 
     @Override
@@ -32,6 +33,7 @@ public class questionnairesActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_questionnaires);
+        roonNum = getIntent().getStringExtra("roomNum");
 
         sendBt = (Button) findViewById(R.id.sendbt);
         radioGroup1 = (RadioGroup) findViewById(R.id.group1);
@@ -70,7 +72,7 @@ public class questionnairesActivity extends Activity {
 
                             if(result.equals("Record updated successfully"))
                             {
-                                Intent intent1 = new Intent(questionnairesActivity.this, MainActivity.class);
+                                Intent intent1 = new Intent(questionnairesActivity.this, MainActivity.class).putExtra("roomNum",roonNum);
                                 startActivity(intent1);
                                 try {
                                     this.finalize();
@@ -88,8 +90,6 @@ public class questionnairesActivity extends Activity {
                                 alertDialog.setTitle("Questionnaires Result");
                                 alertDialog.setMessage(result);
                                 alertDialog.show();
-
-
                                 unregisterReceiver(receiver);
                             }
                         }
@@ -174,6 +174,8 @@ public class questionnairesActivity extends Activity {
 
         return true;
     }
+
+
 
 
 }

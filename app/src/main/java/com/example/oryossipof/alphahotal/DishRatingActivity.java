@@ -63,9 +63,8 @@ public class DishRatingActivity extends Activity {
                 adapter.roomNum = roomNum;
                 listView.setAdapter(adapter);
                 unregisterReceiver(receiver);
+
             }
-
-
         }, new IntentFilter("dishIntent"));
 
     }
