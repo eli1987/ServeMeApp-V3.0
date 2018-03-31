@@ -172,6 +172,12 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
             String result = handleBack(type,params,login_url);
             return result;
         }
+        else if (type.equals("rateDish")) {
+            typeToCheck = "rateDish";
+            String result = handleBack(type,params,login_url);
+            return result;
+        }
+
 
 
 
@@ -282,6 +288,14 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
         else if (typeToCheck == "RateHotel")
         {
             Intent intent = new Intent("RateIntent");
+            intent.putExtra("result", result);
+            context.sendBroadcast(intent);
+
+        }
+
+        else if (typeToCheck == "rateDish")
+        {
+            Intent intent = new Intent("rateDish");
             intent.putExtra("result", result);
             context.sendBroadcast(intent);
 

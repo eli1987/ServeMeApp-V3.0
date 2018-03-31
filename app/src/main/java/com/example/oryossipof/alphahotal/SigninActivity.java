@@ -82,6 +82,7 @@ public class SigninActivity extends Activity {
                                         } catch (Throwable throwable) {
                                             throwable.printStackTrace();
                                         }
+                                        unregisterReceiver(receiver);
                                         unregisterReceiver(receiver2);
                                         finish();
                                     }

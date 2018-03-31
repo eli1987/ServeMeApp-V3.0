@@ -89,7 +89,8 @@ public class FeedbackMenuActivity extends Activity {
                              break;
 
                         case 1:
-                            Toast.makeText(FeedbackMenuActivity.this, "Food", Toast.LENGTH_SHORT).show();
+                            intent = new Intent(FeedbackMenuActivity.this, DishRatingActivity.class).putExtra("roomNum",roomNum);;
+                            startActivity(intent);
                             break;
 
                         case 2:

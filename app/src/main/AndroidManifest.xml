@@ -71,9 +71,11 @@
         <activity
             android:name=".DiningHoursActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".EmployeeRateingActivity"
-            android:screenOrientation="portrait" >
-        </activity>
+        <activity
+            android:name=".EmployeeRateingActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".DishRatingActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
