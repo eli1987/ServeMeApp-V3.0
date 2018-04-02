@@ -89,6 +89,17 @@
         <item>חיפה ועכו</item>
         <item>מצפה רמון והנגב</item>
     </string-array>
+
+    <string-array name="AreaArray">
+        <item>מזרח התיכון</item>
+        <item>דרום אמריקה</item>
+        <item>מזרח אירופה</item>
+        <item>מערב אירופה</item>
+        <item>דרום אסיה</item>
+        <item>ים תיכוני</item>
+        <item>אפריקה</item>
+    </string-array>
+
     <string name="wakeUp_call_str">צלצול השכמה</string>
     <string name="poolhours_str">שעות פתיחה של הבריכה</string>
     <string name="dininghours_str">שעות פתיחה של חדר אוכל</string>
@@ -106,4 +117,23 @@
     <string name="didhelp_str">האם השימוש באפליקציה תרם לשהייתך במלון?</string>
     <string name="No_str">לא</string>
     <string name="Yes_str">כן</string>
+    <string name="Questionanaires_str">שאלון הכרות</string>
+    <string name="Where_do_you_come_from_str">מאיפה אתה מגיע?</string>
+    <string name="age_str">מה הגיל שלך?</string>
+    <string name="under_15_str">מתחת לגיל 15</string>
+    <string name="over_15_str">מעל גיל 15</string>
+    <string name="What_is_your_gender_str">מה המין שלך?</string>
+    <string name="male_str">זָכָר</string>
+    <string name="female_str">נקבה</string>
+    <string name="Are_you_a_vegeterian_str">האם אתה צימחוני?</string>
+    <string name="Are_you_vegan_str">האם אתה טבעוני?</string>
+    <string name="Are_you_married_str">האם אתה נשוי?</string>
+    <string name="Do_you_have_children_str">יש לך ילדים?</string>
+    <string name="Your_trip_is_for_str">מטרת הטיול שלך?</string>
+    <string name="pleasure_str">פנאי</string>
+    <string name="business_str">עסקים</string>
+    <string name="Part_of_a_group_str">אתה חלק מקבוצה?</string>
+    <string name="you_must_fill_all_fields_str">אתה חייב למלא את כל השדות!</string>
+    <string name="SEND_str">שלח</string>
+    <string name="Dish_Rating_str">דירוג מנה מועדפת</string>
 </resources>

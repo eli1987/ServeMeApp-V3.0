@@ -5,7 +5,7 @@
     <string name="activity_location_str">место нахождения</string>
     <string name="activity_time_str">время</string>
     <string name="activity_title_str">title</string>
-    <string name="password_str">пароль</string>
+    <string name="password_str">Passwort</string>
     <string name="signup_bt_str">зарегистрироваться</string>
     <string name="signup_title_str">Логин аккаунта</string>
     <string name="username_str">Номер комнаты</string>
@@ -79,16 +79,6 @@
     <string name="tooManyRequests_str">"Слишком много открытых запросов от одной и той же службы "</string>
     <string name="not_occupied_str">"Этот номер не занят "</string>
     <string name="Book_a_Trip_str">Забронировать поездку</string>
-
-    <string-array name="desArray">
-        <item>Мертвое море</item>
-        <item>Иерусалим и старый город</item>
-        <item>Tel-aviv and Jaffa</item>
-        <item>Тель-Авив и Яффо</item>
-        <item>Кейсария</item>
-        <item>Хайфа и Акко</item>
-        <item>Мицпе Рамон и юг</item>
-    </string-array>
     <string name="wakeUp_call_str">звонок для пробуждения</string>
     <string name="poolhours_str">Часы в бассейне</string>
     <string name="dininghours_str">столовая</string>
@@ -106,4 +96,45 @@
     <string name="didhelp_str">Hat die Nutzung der App zu Ihrem Aufenthalt im Hotel beigetragen?</string>
     <string name="Yes_str">Ja</string>
     <string name="No_str">Nein</string>
+    <string name="Questionanaires_str">Fragebogen</string>
+    <string name="Where_do_you_come_from_str">Woher kommst du?</string>
+    <string name="age_str">Wie alt bist du?</string>
+    <string name="under_15_str">Unter 15</string>
+    <string name="over_15_str">Über 15</string>
+    <string name="What_is_your_gender_str">Was ist dein Geschlecht?</string>
+    <string name="male_str">Männlich</string>
+    <string name="female_str">"Weiblich "</string>
+    <string name="Are_you_a_vegeterian_str">Bist du Vegetarier?</string>
+    <string name="Are_you_vegan_str">Bist du vegan?</string>
+    <string name="Are_you_married_str">Sind Sie verheiratet?</string>
+    <string name="Do_you_have_children_str">Hast du Kinder?</string>
+    <string name="Your_trip_is_for_str">Deine Reise ist für?</string>
+    <string name="pleasure_str">Vergnügen</string>
+    <string name="business_str">Geschäft</string>
+    <string name="Part_of_a_group_str">Teil einer Gruppe?</string>
+    <string name="you_must_fill_all_fields_str">Sie müssen alle Felder ausfüllen!</string>
+    <string name="SEND_str">SENDEN</string>
+
+    <string-array name="desArray">
+        <item>Мертвое море</item>
+        <item>Иерусалим и старый город</item>
+        <item>Tel-aviv and Jaffa</item>
+        <item>Тель-Авив и Яффо</item>
+        <item>Кейсария</item>
+        <item>Хайфа и Акко</item>
+        <item>Мицпе Рамон и юг</item>
+    </string-array>
+
+    <string-array name="AreaArray">
+        <item>Mittlerer Osten</item>
+        <item>Südamerika</item>
+        <item>Osteuropa</item>
+        <item>Westeuropa</item>
+        <item>Südasien</item>
+        <item>Mittelmeer-</item>
+        <item>Afrika</item>
+    </string-array>
+    <string name="Dish_Rating_str">Bevorzugte Paketbewertung</string>
+
+
 </resources>

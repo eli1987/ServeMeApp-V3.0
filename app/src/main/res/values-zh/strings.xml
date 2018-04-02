@@ -89,6 +89,17 @@
         <item>海法和阿卡</item>
         <item>和南部</item>
     </string-array>
+
+    <string-array name="AreaArray">
+        <item>中东</item>
+        <item>南美洲</item>
+        <item>东欧</item>
+        <item>西欧</item>
+        <item>南亚</item>
+        <item>地中海</item>
+        <item>非洲</item>
+    </string-array>
+
     <string name="wakeUp_call_str">叫醒服务</string>
     <string name="poolhours_str">游泳池时间</string>
     <string name="dininghours_str">用餐时间</string>
@@ -106,5 +117,24 @@
     <string name="didhelp_str">使用该应用程序是否有助于您入住酒店？</string>
     <string name="Yes_str">是</string>
     <string name="No_str">没有</string>
+    <string name="Questionanaires_str">调查问卷</string>
+    <string name="Where_do_you_come_from_str">你从哪里来？</string>
+    <string name="age_str">你几岁？</string>
+    <string name="under_15_str">15岁以下</string>
+    <string name="over_15_str">超过15岁</string>
+    <string name="What_is_your_gender_str">你的性别是什么？</string>
+    <string name="male_str">男</string>
+    <string name="female_str">女</string>
+    <string name="Are_you_a_vegeterian_str">你是素食主义者吗？</string>
+    <string name="Are_you_vegan_str">你是素食主义者吗？</string>
+    <string name="Are_you_married_str">你结婚了吗？</string>
+    <string name="Do_you_have_children_str">你有孩子吗？</string>
+    <string name="Your_trip_is_for_str">你的旅行是为了？</string>
+    <string name="pleasure_str">乐趣</string>
+    <string name="business_str">商业</string>
+    <string name="Part_of_a_group_str">一个组的一部分？</string>
+    <string name="you_must_fill_all_fields_str">你必须填写所有的领域！</string>
+    <string name="SEND_str">发送</string>
+    <string name="Dish_Rating_str">"首选数据包评级 "</string>
 
 </resources>

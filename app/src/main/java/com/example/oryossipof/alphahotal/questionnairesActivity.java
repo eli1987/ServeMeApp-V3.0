@@ -11,20 +11,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class questionnairesActivity extends Activity {
     private Button sendBt;
     private RadioGroup radioGroup1,radioGroup2, radioGroup3,radioGroup4,radioGroup5,radioGroup6,radioGroup7,radioGroup8 ;
     private RadioButton adult,  male, vegeterian, vegan, married, children, pleasute, group;
+    private Spinner spinner ;
     private EditText originText;
     private TextView err;
     private BroadcastReceiver receiver;
     private  String roonNum;
+    private int index ;
+    private String[] AreaList = {"Middle East", "South America" , "East Europe", "Western Europe", "South Asia", "Mediterranean","Africa"};
+    private String area;
 
 
     @Override
@@ -44,8 +50,29 @@ public class questionnairesActivity extends Activity {
         radioGroup6 = (RadioGroup) findViewById(R.id.group6);
         radioGroup7 = (RadioGroup) findViewById(R.id.group7);
         radioGroup8 = (RadioGroup) findViewById(R.id.group8);
-        originText = (EditText) findViewById(R.id.originText);
+        spinner = (Spinner) findViewById(R.id.spinner_ip);
         err = (TextView) findViewById(R.id.validationerr);
+
+
+
+        final Spinner spinner = (Spinner) findViewById(R.id.spinner_ip);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                index = spinner.getSelectedItemPosition();
+                area = AreaList[index];
+
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                index = spinner.getSelectedItemPosition();
+                area = AreaList[index];
+
+
+            }
+        });
+
+
 
         sendBt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,7 +140,7 @@ public class questionnairesActivity extends Activity {
 
 
         String answers[] = new String[9];
-        answers[0] = originText.getText().toString();
+        answers[0] = area;
         if (adult.isChecked())
             answers[1] = "1";
         else
@@ -167,7 +194,7 @@ public class questionnairesActivity extends Activity {
     public boolean validate()
     {
 
-        if (radioGroup1.getCheckedRadioButtonId() == -1 || radioGroup2.getCheckedRadioButtonId() == -1 || radioGroup3.getCheckedRadioButtonId() == -1 || radioGroup4.getCheckedRadioButtonId() == -1 || radioGroup5.getCheckedRadioButtonId() == -1 || radioGroup6.getCheckedRadioButtonId() == -1 || radioGroup7.getCheckedRadioButtonId() == -1 || radioGroup8.getCheckedRadioButtonId() == -1 || originText.getText().length() == 0)
+        if (radioGroup1.getCheckedRadioButtonId() == -1 || radioGroup2.getCheckedRadioButtonId() == -1 || radioGroup3.getCheckedRadioButtonId() == -1 || radioGroup4.getCheckedRadioButtonId() == -1 || radioGroup5.getCheckedRadioButtonId() == -1 || radioGroup6.getCheckedRadioButtonId() == -1 || radioGroup7.getCheckedRadioButtonId() == -1 || radioGroup8.getCheckedRadioButtonId() == -1)
         {
             return false;
         }

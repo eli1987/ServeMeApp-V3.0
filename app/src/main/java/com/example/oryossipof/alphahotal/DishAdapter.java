@@ -71,12 +71,11 @@ public class DishAdapter extends ArrayAdapter<Dish> {
             @Override
             public void onClick(View view) {
 
-                String id = String.valueOf(newDish.get(position).dishId);
                 Log.e("Dish",dishId+"");
 
                 BackgroundWorker bg = new BackgroundWorker(context);
                 int index = Integer.parseInt(btTag.toString());
-                bg.execute("rateDish", roomNum,id);
+                bg.execute("rateDish", roomNum,newDish.get(index).dishId+"");
                 progress= new ProgressDialog(context);
                 progress.setMessage(context.getResources().getString(R.string.Delivring_request_str));
                 progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);

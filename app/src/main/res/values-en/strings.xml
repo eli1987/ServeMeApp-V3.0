@@ -89,6 +89,18 @@
         <item>Haifa and Acre</item>
         <item>Mitzpe Ramon and the south</item>
     </string-array>
+
+
+    <string-array name="AreaArray">
+        <item>Middle East</item>
+        <item>South America</item>
+        <item>East Europe</item>
+        <item>Western Europe</item>
+        <item>South Asia</item>
+        <item>Mediterranean</item>
+        <item>Africa</item>
+    </string-array>
+
     <string name="wakeUp_call_str">Wake up call</string>
     <string name="poolhours_str">Pool hours</string>
     <string name="dininghours_str">Dining room hours</string>
@@ -106,4 +118,23 @@
     <string name="No_str">No</string>
     <string name="Yes_str">Yes</string>
     <string name="didhelp_str">Did using the app contribute to your stay at the hotel?</string>
+    <string name="Questionanaires_str">Questionanaires</string>
+    <string name="Where_do_you_come_from_str">Where do you come from?</string>
+    <string name="age_str">What is your age?</string>
+    <string name="under_15_str">Under 15</string>
+    <string name="over_15_str">Over 15</string>
+    <string name="What_is_your_gender_str">What is your gender?</string>
+    <string name="male_str">Male</string>
+    <string name="female_str">Female</string>
+    <string name="Are_you_a_vegeterian_str">Are you a vegeterian?</string>
+    <string name="Are_you_vegan_str">Are you vegan?</string>
+    <string name="Are_you_married_str">Are you married?</string>
+    <string name="Do_you_have_children_str">Do you have children?</string>
+    <string name="Your_trip_is_for_str">Your trip is for?</string>
+    <string name="pleasure_str">Pleasure</string>
+    <string name="business_str">Business</string>
+    <string name="Part_of_a_group_str">Part of a group?</string>
+    <string name="you_must_fill_all_fields_str">You must fill all fields!</string>
+    <string name="SEND_str">SEND</string>
+    <string name="Dish_Rating_str">Dish Rating</string>
 </resources>
