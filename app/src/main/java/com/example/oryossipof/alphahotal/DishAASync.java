@@ -36,13 +36,14 @@ public class DishAASync extends AsyncTask<String, Void, ArrayList<Dish>> {
     @Override
     protected ArrayList<Dish> doInBackground(String... params) {
         String type = params[0];
-        String language = params[1];
+
 
 
         // String login_url = "http://192.168.14.157/ServerMeApp/login.php";
         String login_url = "http://servemeapp.000webhostapp.com//androidDataBaseQueries.php";
         if (type.equals("getDishData")) {
             typeToCheck = "getDishData";
+            String language = params[1];
             try {
                 // String language = params[1];
 
@@ -108,6 +109,82 @@ public class DishAASync extends AsyncTask<String, Void, ArrayList<Dish>> {
         }
 
 
+        if (type.equals("getRecommendedDish")) {
+            typeToCheck = "getRecommendedDish";
+            String roomNum = params[1];
+            String language = params[2];
+            try {
+                // String language = params[1];
+
+                URL url = new URL(login_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+
+                /*********/
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                /************/
+
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String post_date = URLEncoder.encode("lang", "UTF-8") + "=" + URLEncoder.encode(language, "UTF-8")
+                        + "&"+ URLEncoder.encode("roomNum", "UTF-8") + "=" + URLEncoder.encode(roomNum, "UTF-8")
+                        + "&"+ URLEncoder.encode("todo", "UTF-8") + "=" + URLEncoder.encode("getRecommendedDish", "UTF-8");
+
+                bufferedWriter.write(post_date);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+
+
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"));
+                StringBuilder sb = new StringBuilder();
+                String line = "";
+
+                while ((line = bufferedReader.readLine()) != null) {
+                    sb.append(line+"\n");
+
+                }
+                result =sb.toString();
+
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+
+
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                JSONArray ja = new JSONArray(result);
+                JSONObject jo = null;
+                for(int i = 0 ; i <ja.length();i++)
+                {
+
+                    jo= ja.getJSONObject(i);
+                    if(jo.has("dishId"))
+                    {
+                        dish.add(new Dish(0,"0",""));
+                    }
+                    else
+                    dish.add(new Dish(jo.getInt("id"),jo.getString("dishName"),jo.getString("picStr")));
+                }
+
+
+
+            }
+            catch (Exception e)
+            {
+
+            }
+            return dish;
+        }
+
+
         return null;
     }
 
@@ -115,12 +192,18 @@ public class DishAASync extends AsyncTask<String, Void, ArrayList<Dish>> {
     protected void onPostExecute(ArrayList<Dish> strings) {
         super.onPostExecute(strings);
         dish = strings;
-        if(typeToCheck == "getDishData")
-        {
+        if (typeToCheck == "getDishData") {
             Intent intent1 = new Intent("dishIntent");
             intent1.putExtra("result", dish);
             context.sendBroadcast(intent1);
 
         }
+        if (typeToCheck == "getRecommendedDish") {
+            Intent intent1 = new Intent("getRecommendedDish");
+            intent1.putExtra("result", dish);
+            context.sendBroadcast(intent1);
+
+        }
     }
+
 }

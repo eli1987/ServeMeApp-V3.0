@@ -138,4 +138,6 @@
     <string name="you_must_fill_all_fields_str">Вы должны заполнить все поля!</string>
     <string name="SEND_str">ОТПРАВИТЬ</string>
     <string name="Dish_Rating_str">"Предпочтительный рейтинг пакетов "</string>
+    <string name="RecommandeDish_str">Рекомендуемое блюдо для вас</string>
+    <string name="Sorry_str">К сожалению, в настоящее время у вас нет рекомендуемого блюда!</string>
 </resources>

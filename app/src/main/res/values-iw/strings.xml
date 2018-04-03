@@ -136,4 +136,6 @@
     <string name="you_must_fill_all_fields_str">אתה חייב למלא את כל השדות!</string>
     <string name="SEND_str">שלח</string>
     <string name="Dish_Rating_str">דירוג מנה מועדפת</string>
+    <string name="RecommandeDish_str">מנה ממולצת עבורך</string>
+    <string name="Sorry_str">מצטערים , לעת עתה אין לנו מנה מומלצת בשבילך!</string>
 </resources>

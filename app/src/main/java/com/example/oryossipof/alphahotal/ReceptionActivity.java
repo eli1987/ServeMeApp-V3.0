@@ -17,8 +17,8 @@ import android.widget.TextView;
 public class ReceptionActivity extends Activity {
     private ProgressDialog progress ;
     private String roomNum;
-    private int [] drawableName = {R.drawable.call3,R.drawable.trip,R.drawable.tour,R.drawable.food,R.drawable.taxi,R.drawable.weakup};
-    String receptionDesc[] = {"Call","Book a Trip","Recommend tours","Recommend restaurants","Get Taxi","Wake up call"};
+    private int [] drawableName = {R.drawable.call3,R.drawable.trip,R.drawable.taxi,R.drawable.weakup};
+    String receptionDesc[] = {"Call","Book a Trip","Get Taxi","Wake up call"};
     String reception[];
     private ListView mListView ;
     private Context context;
@@ -32,7 +32,7 @@ public class ReceptionActivity extends Activity {
         setContentView(R.layout.activity_reception);
 
 
-        reception = new String[] {getResources().getString(R.string.call_str), getResources().getString(R.string.book_trip_str), getResources().getString(R.string.Recommend_tours_str), getResources().getString(R.string.Recommend_restaurants_str),getResources().getString(R.string.Get_Taxi_str),getResources().getString(R.string.Wake_up_call_str)};
+        reception = new String[] {getResources().getString(R.string.call_str), getResources().getString(R.string.book_trip_str),getResources().getString(R.string.Get_Taxi_str),getResources().getString(R.string.Wake_up_call_str)};
         mListView = (ListView) findViewById(R.id.lv_housekeeping);
         final CutomAdapter2 adapter = new CutomAdapter2();
         mListView.setAdapter(adapter);
@@ -88,13 +88,14 @@ public class ReceptionActivity extends Activity {
                             startActivity(intent);
                             break;
 
-                        case 4:  //Get Taxi
+
+                        case 2:  //Get Taxi
                             intent = new Intent(ReceptionActivity.this, BookTaxiActivity.class);
                             intent.putExtra("roomNum",roomNum);
                             startActivity(intent);
                             break;
 
-                        case 5:  //wake up call
+                        case 3:  //wake up call
                             intent = new Intent(ReceptionActivity.this, WakeUpCall.class);
                             intent.putExtra("roomNum",roomNum);
                             startActivity(intent);

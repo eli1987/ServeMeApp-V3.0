@@ -136,5 +136,7 @@
     <string name="you_must_fill_all_fields_str">你必须填写所有的领域！</string>
     <string name="SEND_str">发送</string>
     <string name="Dish_Rating_str">"首选数据包评级 "</string>
+    <string name="RecommandeDish_str">为你推荐的菜</string>
+    <string name="Sorry_str">对不起，我们目前没有给你推荐的菜肴！</string>
 
 </resources>

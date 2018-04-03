@@ -137,4 +137,6 @@
     <string name="you_must_fill_all_fields_str">You must fill all fields!</string>
     <string name="SEND_str">SEND</string>
     <string name="Dish_Rating_str">Dish Rating</string>
+    <string name="RecommandeDish_str">Recommended dish for you</string>
+    <string name="Sorry_str">Sorry, we currently do not have a recommended dish for you!</string>
 </resources>
