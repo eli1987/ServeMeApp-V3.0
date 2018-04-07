@@ -17,7 +17,8 @@ import java.util.Locale;
 
 public class  ActivitiesActivity extends Activity {
 
-    private ActivityAASync ActivityAASync;
+    //private ActivityAASync ActivityAASync;
+    private GenricAASync<MyActivity> genricAA;
     private BroadcastReceiver receiver;
 
     ArrayList<MyActivity>  result = new ArrayList<>();
@@ -40,8 +41,10 @@ public class  ActivitiesActivity extends Activity {
         // Add item to adapter
         listView.setAdapter(adapter);
 
-        ActivityAASync = new ActivityAASync(ActivitiesActivity.this);
-        ActivityAASync.execute(type, Locale.getDefault().getLanguage());
+       // ActivityAASync = new ActivityAASync(ActivitiesActivity.this);
+        genricAA = new GenricAASync(ActivitiesActivity.this);
+       // ActivityAASync.execute(type, Locale.getDefault().getLanguage());
+        genricAA.execute(type,Locale.getDefault().getLanguage());
         registerReceiver(receiver =new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {

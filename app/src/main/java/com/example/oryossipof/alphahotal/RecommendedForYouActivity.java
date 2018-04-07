@@ -21,7 +21,9 @@ import java.util.Locale;
 
 public class RecommendedForYouActivity extends AppCompatActivity {
 
-    private DishAASync DishAASync;
+    //private DishAASync DishAASync;
+
+    private GenricAASync<Dish> genricAASync;
     private BroadcastReceiver receiver;
     private String roomNum;
     ArrayList<Dish> result = new ArrayList<>();
@@ -39,8 +41,8 @@ public class RecommendedForYouActivity extends AppCompatActivity {
 
         String type = "getRecommendedDish";
 
-        DishAASync = new DishAASync(RecommendedForYouActivity.this);
-        DishAASync.execute(type,roomNum ,Locale.getDefault().getLanguage());
+        genricAASync = new GenricAASync<Dish>(RecommendedForYouActivity.this);
+        genricAASync.execute(type,roomNum ,Locale.getDefault().getLanguage());
 
         registerReceiver(receiver =new BroadcastReceiver() {
             @Override

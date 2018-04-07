@@ -18,7 +18,8 @@ import java.util.Locale;
 public class DishRatingActivity extends Activity {
 
 
-    private DishAASync DishAASync;
+    //private DishAASync DishAASync;
+    private GenricAASync<Dish> genricAASync;
     private BroadcastReceiver receiver;
     private String roomNum;
     ArrayList<Dish>  result = new ArrayList<>();
@@ -44,8 +45,8 @@ public class DishRatingActivity extends Activity {
         // Add item to adapter
         listView.setAdapter(adapter);
 
-        DishAASync = new DishAASync(DishRatingActivity.this);
-        DishAASync.execute(type, Locale.getDefault().getLanguage());
+        genricAASync = new GenricAASync<Dish>(DishRatingActivity.this);
+        genricAASync.execute(type, Locale.getDefault().getLanguage());
         registerReceiver(receiver =new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {

@@ -17,7 +17,8 @@ import java.util.Locale;
 public class EmployeeRateingActivity extends Activity {
 
 
-    private EmpAASync EmpAASync;
+   // private EmpAASync EmpAASync;
+    private GenricAASync<Employee> GenricEmpAASync;
     private BroadcastReceiver receiver;
     private String roomNum;
     ArrayList<Employee>  result = new ArrayList<>();
@@ -44,8 +45,8 @@ public class EmployeeRateingActivity extends Activity {
         // Add item to adapter
         listView.setAdapter(adapter);
 
-        EmpAASync = new EmpAASync(EmployeeRateingActivity.this);
-        EmpAASync.execute(type, Locale.getDefault().getLanguage());
+        GenricEmpAASync = new GenricAASync<Employee>(EmployeeRateingActivity.this);
+        GenricEmpAASync.execute(type, Locale.getDefault().getLanguage());
         registerReceiver(receiver =new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {

@@ -1,6 +1,7 @@
 package com.example.oryossipof.alphahotal;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -31,7 +32,7 @@ public class questionnairesActivity extends Activity {
     private int index ;
     private String[] AreaList = {"Middle East", "South America" , "East Europe", "Western Europe", "South Asia", "Mediterranean","Africa"};
     private String area;
-
+    private ProgressDialog progress ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +54,7 @@ public class questionnairesActivity extends Activity {
         spinner = (Spinner) findViewById(R.id.spinner_ip);
         err = (TextView) findViewById(R.id.validationerr);
 
-
+        progress= new ProgressDialog(questionnairesActivity.this);
 
         final Spinner spinner = (Spinner) findViewById(R.id.spinner_ip);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -90,6 +91,15 @@ public class questionnairesActivity extends Activity {
                     BackgroundWorker backgroundWorker = new BackgroundWorker(questionnairesActivity.this);
                     String answers[] = getAnswers();
                     backgroundWorker.execute(type,answers[0],answers[1],answers[2],answers[3],answers[4],answers[5],answers[6],answers[7],answers[8],roomNum);
+                    progress.setMessage(getResources().getString(R.string.Delivring_request_str));
+                    progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                    progress.setIndeterminate(false);
+                    progress.setCancelable(false);
+                    progress.setCanceledOnTouchOutside(false);
+                    progress.setProgress(0);
+                    progress.show();
+
+
 
                     registerReceiver(receiver = new BroadcastReceiver() {
                         @Override
@@ -99,6 +109,7 @@ public class questionnairesActivity extends Activity {
 
                             if(result.equals("Record updated successfully"))
                             {
+                                progress.dismiss();
                                 Intent intent1 = new Intent(questionnairesActivity.this, MainActivity.class).putExtra("roomNum",roonNum);
                                 startActivity(intent1);
                                 try {
@@ -129,12 +140,12 @@ public class questionnairesActivity extends Activity {
 
     public String[] getAnswers() {
         adult = (RadioButton) findViewById(R.id.over15bt);
-        male = (RadioButton) findViewById(R.id.malebt);
+        male = (RadioButton) findViewById(R.id.femalebt);
         vegeterian = (RadioButton) findViewById(R.id.vegYesbt);
         vegan = (RadioButton) findViewById(R.id.veganYesbt);
         married = (RadioButton) findViewById(R.id.marriedYesbt);
         children = (RadioButton) findViewById(R.id.childrenYesbt);
-        pleasute = (RadioButton) findViewById(R.id.pleasurebt);
+        pleasute = (RadioButton) findViewById(R.id.bussinessbt);
         group = (RadioButton) findViewById(R.id.groupYesbt);
 
 

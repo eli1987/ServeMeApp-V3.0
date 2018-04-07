@@ -1,10 +1,12 @@
-package com.example.oryossipof.alphahotal;
+package com.example.oryossipof.alphahotal.ToDelete;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
+
+import com.example.oryossipof.alphahotal.HotelService;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

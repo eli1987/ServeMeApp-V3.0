@@ -22,6 +22,7 @@ public class InformationUtils {
     static String ROOM_SERVICE_CALL;
     static String MAINTENANCE_CALL;
     static String DINING_HOURS;
+    static String url = "http://servemeapp.000webhostapp.com//androidDataBaseQueries.php";
 
 
     static BroadcastReceiver serviceReceiver;
@@ -36,8 +37,11 @@ public class InformationUtils {
     {
         String type = "getService";
         String CurrentLang = Locale.getDefault().getLanguage();
-        AASync AASync = new AASync(ctx);
-        AASync.execute(type,CurrentLang);
+       // AASync AASync = new AASync(ctx);
+       // AASync.execute(type,CurrentLang);
+        GenricAASync<HotelService> genricAASync = new GenricAASync<HotelService>(ctx);
+        genricAASync.execute(type,CurrentLang);
+
         context = ctx;
         context.registerReceiver(serviceReceiver =new BroadcastReceiver() {
             @Override

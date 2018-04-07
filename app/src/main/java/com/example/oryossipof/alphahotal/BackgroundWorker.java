@@ -32,15 +32,15 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
     protected String doInBackground(String... params) {
         String type = params[0];
 
-        // String login_url = "http://192.168.14.157/ServerMeApp/login.php";
-        String login_url = "http://servemeapp.000webhostapp.com//androidDataBaseQueries.php";
+        String ServerUrl =  InformationUtils.url;
+
         if (type.equals("login")) {
             typeToCheck = "login";
-            String result = handleBack(type, params, login_url);
+            String result = handleBack(type, params, ServerUrl);
             return result;
         } else if (type.equals("questionnaires")) {
             typeToCheck = "questionnaires";
-            String questionnaires_url = "http://servemeapp.000webhostapp.com//androidDataBaseQueries.php";
+            String questionnaires_url = ServerUrl;
             try {
                 String origin = params[1];
                 String adult = params[2];
@@ -96,7 +96,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
                 if (result.equals("New record created successfully")) {
                     try {
                         String roomNumber = params[10];
-                        url = new URL(login_url);
+                        url = new URL(ServerUrl);
                         httpURLConnection = (HttpURLConnection) url.openConnection();
                         httpURLConnection.setRequestMethod("POST");
 
@@ -149,32 +149,32 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
             }
         } else if (type.equals("didQuestionnairesBefore")) {
             typeToCheck = "didQuestionnairesBefore";
-            String result = handleBack(type,params,login_url);
+            String result = handleBack(type,params,ServerUrl);
             return result;
         } else if (type.equals("insertNewRequest")) {
             typeToCheck = "insertNewRequest";
-            String result = handleBack(type,params,login_url);
+            String result = handleBack(type,params,ServerUrl);
             return result;
 
 
         } else if (type.equals("orderTaxi")) {
             typeToCheck = "orderTaxi";
-            String result = handleBack(type,params,login_url);
+            String result = handleBack(type,params,ServerUrl);
             return result;
         }
         else if (type.equals("RateEmployee")) {
             typeToCheck = "RateEmployee";
-            String result = handleBack(type,params,login_url);
+            String result = handleBack(type,params,ServerUrl);
             return result;
         }
         else if (type.equals("RateHotel")) {
             typeToCheck = "RateHotel";
-            String result = handleBack(type,params,login_url);
+            String result = handleBack(type,params,ServerUrl);
             return result;
         }
         else if (type.equals("rateDish")) {
             typeToCheck = "rateDish";
-            String result = handleBack(type,params,login_url);
+            String result = handleBack(type,params,ServerUrl);
             return result;
         }
 
