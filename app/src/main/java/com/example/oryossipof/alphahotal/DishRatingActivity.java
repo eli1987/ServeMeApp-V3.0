@@ -39,7 +39,7 @@ public class DishRatingActivity extends Activity {
         // Create the adapter to convert the array to views
         adapter = new DishAdapter(this, dishes);
         // Attach the adapter to a ListView
-        final ListView listView = (ListView) findViewById(R.id.tripListView);
+        final ListView listView = (ListView) findViewById(R.id.dishListView);
 
         String type = "getDishData";
         // Add item to adapter
