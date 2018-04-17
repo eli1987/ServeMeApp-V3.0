@@ -138,6 +138,7 @@
     <string name="Dish_Rating_str">"Évaluation de paquet préféré "</string>
     <string name="RecommandeDish_str">Plat recommandé pour vous</string>
     <string name="Sorry_str">Désolé, nous n\'avons actuellement pas de plat recommandé pour vous!</string>
+    <string name="RecommendedRestaurents">Restaurants recommandés</string>
 
 
 </resources>

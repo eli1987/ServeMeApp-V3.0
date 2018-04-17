@@ -2,6 +2,7 @@ package com.example.oryossipof.alphahotal;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -19,6 +20,8 @@ public class SigninActivity extends Activity {
     private EditText roomNum, password;
     BroadcastReceiver receiver;
     BroadcastReceiver receiver2;
+    private ProgressDialog progress ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,7 @@ public class SigninActivity extends Activity {
         loginBT = (Button) findViewById(R.id.signinBT);
         password = (EditText) findViewById(R.id.passInput);
         roomNum = (EditText) findViewById(R.id.roomNumInput);
+        progress= new ProgressDialog(SigninActivity.this);
         loginBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,6 +45,15 @@ public class SigninActivity extends Activity {
                 String type = "login";
                 backgroundWorker = new BackgroundWorker(SigninActivity.this);
                 backgroundWorker.execute(type,roomNum.getText().toString(),password.getText().toString());
+                progress.setMessage(getResources().getString(R.string.Delivring_request_str));
+                progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                progress.setIndeterminate(false);
+                progress.setCancelable(false);
+                progress.setCanceledOnTouchOutside(false);
+                progress.setProgress(0);
+                progress.show();
+                loginBT.setEnabled(false);
+
                 registerReceiver(receiver =new BroadcastReceiver() {
                     @Override
                     public void onReceive(Context context, Intent intent) {
@@ -69,6 +82,7 @@ public class SigninActivity extends Activity {
                                         } catch (Throwable throwable) {
                                             throwable.printStackTrace();
                                         }
+                                        progress.dismiss();
                                         unregisterReceiver(receiver);
                                         unregisterReceiver(receiver2);
                                         finish();
@@ -85,6 +99,7 @@ public class SigninActivity extends Activity {
                                         } catch (Throwable throwable) {
                                             throwable.printStackTrace();
                                         }
+                                        progress.dismiss();
                                         finish();
                                     }
 
@@ -96,6 +111,8 @@ public class SigninActivity extends Activity {
                         }        /////////////////////////////////////////
                         else
                         {
+                            progress.dismiss();
+                            loginBT.setEnabled(true);
                             AlertDialog alertDialog = new AlertDialog.Builder(context).create();
                             alertDialog.setTitle(getResources().getString(R.string.login_result_str));
                             alertDialog.setMessage(getResources().getString(R.string.login_failed_str));

@@ -138,5 +138,6 @@
     <string name="Dish_Rating_str">"首选数据包评级 "</string>
     <string name="RecommandeDish_str">为你推荐的菜</string>
     <string name="Sorry_str">对不起，我们目前没有给你推荐的菜肴！</string>
+    <string name="RecommendedRestaurents">推荐的餐厅</string>
 
 </resources>

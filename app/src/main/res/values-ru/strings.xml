@@ -140,4 +140,5 @@
     <string name="Dish_Rating_str">"Предпочтительный рейтинг пакетов "</string>
     <string name="RecommandeDish_str">Рекомендуемое блюдо для вас</string>
     <string name="Sorry_str">К сожалению, в настоящее время у вас нет рекомендуемого блюда!</string>
+    <string name="RecommendedRestaurents">Рекомендуемые рестораны</string>
 </resources>

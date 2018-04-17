@@ -138,4 +138,5 @@
     <string name="Dish_Rating_str">דירוג מנה מועדפת</string>
     <string name="RecommandeDish_str">מנה ממולצת עבורך</string>
     <string name="Sorry_str">מצטערים , לעת עתה אין לנו מנה מומלצת בשבילך!</string>
+    <string name="RecommendedRestaurents">מסעדות מומלצות עבורך</string>
 </resources>

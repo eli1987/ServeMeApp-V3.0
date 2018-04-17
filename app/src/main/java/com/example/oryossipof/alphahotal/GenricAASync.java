@@ -112,6 +112,8 @@ public class GenricAASync <E> extends AsyncTask<String, Void,  ArrayList<E>> {
 
                 else if (typeToCheck == "getDishData")
                     service.add((E) new Dish(jo.getInt("id"), jo.getString("dishName"), jo.getString("picStr")));
+                else if (typeToCheck == "getRestaurants")
+                    service.add((E) new Dish(jo.getInt("id"), jo.getString("dishName"), jo.getString("picStr")));
                 else {
                     if (jo.has("dishId")) {
                         service.add((E) new Dish(0, "0", ""));
@@ -171,6 +173,13 @@ public class GenricAASync <E> extends AsyncTask<String, Void,  ArrayList<E>> {
         else if(typeToCheck == "getActivityData")
         {
             Intent intent1 = new Intent("ActivityIntent");
+            intent1.putExtra("result", service);
+            context.sendBroadcast(intent1);
+
+        }
+        else if(typeToCheck == "getRestaurants")
+        {
+            Intent intent1 = new Intent("getRestaurants");
             intent1.putExtra("result", service);
             context.sendBroadcast(intent1);
 

@@ -137,6 +137,7 @@
     <string name="Dish_Rating_str">Bevorzugte Paketbewertung</string>
     <string name="RecommandeDish_str">Empfohlenes Gericht für Sie</string>
     <string name="Sorry_str">Entschuldigung, wir haben momentan kein empfohlenes Gericht für Sie!</string>
+    <string name="RecommendedRestaurents">Empfohlene Restaurants</string>
 
 
 </resources>

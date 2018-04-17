@@ -2,10 +2,13 @@ package com.example.oryossipof.alphahotal;
 
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -14,6 +17,12 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.Locale;
 
 public class InformationActivity extends Activity {
 
@@ -23,10 +32,14 @@ public class InformationActivity extends Activity {
     public  String MAPS_ADDRESS = "";
     private ListView mListView ;
     private Context context;
-    private int [] drawableName= {R.drawable.weather,R.drawable.maps,R.drawable.flight,R.drawable.shabb2,R.drawable.din,R.drawable.pre,R.drawable.pool,R.drawable.recommendedicon};
-    private String infoDesc[] = {"Weather","Maps","Flight Times","Shabbat Hours ","Dinning Hours","Activities","Pool hours","Recommended dish for you"};
+    private int [] drawableName= {R.drawable.weather,R.drawable.maps,R.drawable.flight,R.drawable.shabb2,R.drawable.din,R.drawable.pre,R.drawable.pool,R.drawable.recommendedicon,R.drawable.restaurants2};
+    private String infoDesc[] = {"Weather","Maps","Flight Times","Shabbat Hours ","Dinning Hours","Activities","Pool hours","Recommended dish for you","Recommended restaurants for you"};
     private String info[];
-
+    ArrayList<Dish> result = new ArrayList<>();
+    ArrayList<Dish> newUsers =new ArrayList<>();
+    private GenricAASync<Dish> genricAASync;
+    private BroadcastReceiver receiver;
+    private String dishName;
     private String roomNum;
 
 
@@ -38,7 +51,7 @@ public class InformationActivity extends Activity {
         setContentView(R.layout.activity_information);
 
 
-        info = new String[]{getResources().getString(R.string.Weather_str),getResources().getString(R.string.Maps_str),getResources().getString(R.string.Flight_Times_str),getResources().getString(R.string.Shabbat_Hours_str),getResources().getString(R.string.Dinning_Hours_str),getResources().getString(R.string.Activities_str),getResources().getString(R.string.Pool_hours_str),getResources().getString(R.string.RecommandeDish_str)};
+        info = new String[]{getResources().getString(R.string.Weather_str),getResources().getString(R.string.Maps_str),getResources().getString(R.string.Flight_Times_str),getResources().getString(R.string.Shabbat_Hours_str),getResources().getString(R.string.Dinning_Hours_str),getResources().getString(R.string.Activities_str),getResources().getString(R.string.Pool_hours_str),getResources().getString(R.string.RecommandeDish_str),getResources().getString(R.string.RecommendedRestaurents)};
         mListView = (ListView) findViewById(R.id.lv_housekeeping);
         final CutomAdapter2 adapter = new CutomAdapter2();
         mListView.setAdapter(adapter);
@@ -129,6 +142,39 @@ public class InformationActivity extends Activity {
                             intent = new Intent(InformationActivity.this, RecommendedForYouActivity.class);
                             intent.putExtra("roomNum",roomNum);
                             startActivity(intent);
+                            break;
+
+                        case 8:
+                            String type = "getRestaurants";
+                            genricAASync = new GenricAASync<Dish>(InformationActivity.this);
+                            genricAASync.execute(type,roomNum);
+                            registerReceiver(receiver =new BroadcastReceiver() {
+                                @Override
+                                public void onReceive(Context context, Intent intent) {
+                                    result = (ArrayList<Dish>)intent.getSerializableExtra("result");
+
+                                    if(result == null)
+                                    {
+                                        Toast.makeText(context, context.getResources().getString(R.string.Sorry_str), Toast.LENGTH_SHORT).show();
+
+                                    }
+                                    else
+                                    {
+                                            newUsers = new ArrayList<Dish>();
+                                            for(int i=0;i <result.size();i++)
+                                            {
+                                                newUsers.add(result.get(i));
+                                            }
+
+                                               dishName = newUsers.get(0).dishName;
+                                               intent = new Intent(Intent.ACTION_VIEW, Uri.parse(InformationUtils.restaurntsWebPage+dishName));
+                                                startActivity(intent);
+                                    }
+
+                                    unregisterReceiver(receiver);
+
+                                }
+                            }, new IntentFilter("getRestaurants"));
 
                             break;
 

@@ -23,6 +23,7 @@ public class InformationUtils {
     static String MAINTENANCE_CALL;
     static String DINING_HOURS;
     static String url = "http://servemeapp.000webhostapp.com//androidDataBaseQueries.php";
+    static String restaurntsWebPage = "https://easy.co.il/en/?q=";
 
 
     static BroadcastReceiver serviceReceiver;
@@ -70,6 +71,8 @@ public class InformationUtils {
 
 
         }, new IntentFilter("serviceIntent"));
+
+
 
     }
 

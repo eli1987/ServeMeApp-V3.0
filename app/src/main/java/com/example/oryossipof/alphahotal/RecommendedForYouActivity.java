@@ -1,5 +1,6 @@
 package com.example.oryossipof.alphahotal;
 
+import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -28,6 +29,7 @@ public class RecommendedForYouActivity extends AppCompatActivity {
     private String roomNum;
     ArrayList<Dish> result = new ArrayList<>();
     ArrayList<Dish> newUsers =new ArrayList<>();
+    private ProgressDialog progress ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,34 +38,44 @@ public class RecommendedForYouActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recommended_for_you);
         final  TextView dishtName = (TextView) findViewById(R.id.RecommendedAnsTv);
         final ImageView ImageStr = (ImageView) findViewById(R.id.Recommendeddishiv);
-
         roomNum = getIntent().getStringExtra("roomNum");
+        progress= new ProgressDialog(RecommendedForYouActivity.this);
 
         String type = "getRecommendedDish";
 
         genricAASync = new GenricAASync<Dish>(RecommendedForYouActivity.this);
         genricAASync.execute(type,roomNum ,Locale.getDefault().getLanguage());
+        progress.setMessage(getResources().getString(R.string.Delivring_request_str));
+        progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        progress.setIndeterminate(false);
+        progress.setCancelable(false);
+        progress.setCanceledOnTouchOutside(false);
+        progress.setProgress(0);
+        progress.show();
 
         registerReceiver(receiver =new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
                 result = (ArrayList<Dish>)intent.getSerializableExtra("result");
-                Log.e("result",result.size()+"");
-                newUsers = new ArrayList<Dish>();
-                for(int i=0;i <result.size();i++)
-                {
-                    newUsers.add(result.get(i));
-                }
-
-                if(result.size() == 0)
+                //Log.e("result",result.size()+"");
+                if(result == null)
                 {
                     dishtName.setText(getResources().getString(R.string.Sorry_str));
+                    progress.dismiss();
                 }
+
+
+
                 else
                 {
+                    newUsers = new ArrayList<Dish>();
+                    for(int i=0;i <result.size();i++)
+                    {
+                        newUsers.add(result.get(i));
+                    }
                     dishtName.setText(newUsers.get(0).dishName);
                     Picasso.with(context).load("http://servemeapp.000webhostapp.com/"+newUsers.get(0).getDishImg()).fit().into(ImageStr);
-
+                    progress.dismiss();
                 }
 
                 unregisterReceiver(receiver);

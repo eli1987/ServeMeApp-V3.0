@@ -139,4 +139,5 @@
     <string name="Dish_Rating_str">Dish Rating</string>
     <string name="RecommandeDish_str">Recommended dish for you</string>
     <string name="Sorry_str">Sorry, we currently do not have a recommended dish for you!</string>
+    <string name="RecommendedRestaurents">Recommended restaurants</string>
 </resources>
