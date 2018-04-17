@@ -136,8 +136,9 @@
     </string-array>
     <string name="Dish_Rating_str">Bevorzugte Paketbewertung</string>
     <string name="RecommandeDish_str">Empfohlenes Gericht für Sie</string>
-    <string name="Sorry_str">Entschuldigung, wir haben momentan kein empfohlenes Gericht für Sie!</string>
+    <string name="Sorry_str">Entschuldigung, wir haben noch keine Empfehlung ..</string>
     <string name="RecommendedRestaurents">Empfohlene Restaurants</string>
+    <string name="toursRating">Touren Bewertung</string>
 
 
 </resources>

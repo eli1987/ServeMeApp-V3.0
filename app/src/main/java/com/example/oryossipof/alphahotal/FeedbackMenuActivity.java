@@ -18,7 +18,7 @@ import android.widget.Toast;
 public class FeedbackMenuActivity extends Activity {
     public  String BOOKING_ADDRESS ="";
     public  String TRIPADVISOR_ADDRESS = "";
-    private int drawableNames[] = {R.drawable.workers,R.drawable.foodrat,R.drawable.booking,R.drawable.tripadv,R.drawable.feedback2};
+    private int drawableNames[] = {R.drawable.workers,R.drawable.foodrat,R.drawable.booking,R.drawable.tripadv,R.drawable.feedback2,R.drawable.trip};
     private String  feedback[];
     private String  roomNum;
     private Class[] connections = {MainActivity.class, MainActivity.class, MainActivity.class,MainActivity.class, FeedbackActivity.class};
@@ -33,7 +33,7 @@ public class FeedbackMenuActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_feedback_menu);
-        feedback =new String[]{getResources().getString(R.string.Employees_Rating_str),getResources().getString(R.string.Food_Rating_str),"Booking.com","Tripadvisor.com",getResources().getString(R.string.Hotel_Feedback_str)};
+        feedback =new String[]{getResources().getString(R.string.Employees_Rating_str),getResources().getString(R.string.Food_Rating_str),"Booking.com","Tripadvisor.com",getResources().getString(R.string.Hotel_Feedback_str),getResources().getString(R.string.toursRating)};
         roomNum = getIntent().getStringExtra("roomNum");
 
         mListView = (ListView) findViewById(R.id.lv_housekeeping);
@@ -105,6 +105,11 @@ public class FeedbackMenuActivity extends Activity {
 
                         case 4:
                             intent = new Intent(FeedbackMenuActivity.this, connections[index]).putExtra("roomNum",roomNum);;
+                            startActivity(intent);
+                            break;
+
+                        case 5:
+                            intent = new Intent(FeedbackMenuActivity.this, TripRateActivity.class).putExtra("roomNum",roomNum);;
                             startActivity(intent);
                             break;
 

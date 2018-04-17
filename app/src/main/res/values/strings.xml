@@ -118,9 +118,9 @@
     <string name="already_rated_str">You have already rated today</string>
     <string name="Dish_Rating_str">Dish Rating</string>
     <string name="RecommandeDish_str">Recommended dish for you</string>
-    <string name="Sorry_str">Sorry, we currently do not have a recommended dish for you!</string>
+    <string name="Sorry_str">Sorry , we do not have recommendation yet..</string>
     <string name="RecommendedRestaurents">Recommended restaurants</string>
-
+    <string name="toursRating">Tours rating</string>
     <string-array name="passArray">
         <item>1</item>
         <item>2</item>

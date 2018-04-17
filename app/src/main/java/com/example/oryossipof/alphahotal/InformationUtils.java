@@ -26,6 +26,7 @@ public class InformationUtils {
     static String restaurntsWebPage = "https://easy.co.il/en/?q=";
 
 
+
     static BroadcastReceiver serviceReceiver;
     static ArrayList<HotelService> infoResult = new ArrayList<>();
     static ArrayList<HotelService> newService =new ArrayList<>();

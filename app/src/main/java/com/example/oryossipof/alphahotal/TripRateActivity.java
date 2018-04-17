@@ -15,44 +15,42 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class DishRatingActivity extends Activity {
+public class TripRateActivity extends Activity {
 
-
-    //private DishAASync DishAASync;
-    private GenricAASync<Dish> genricAASync;
+    private GenricAASync<Trip> genricAASync;
     private BroadcastReceiver receiver;
     private String roomNum;
-    ArrayList<Dish>  result = new ArrayList<>();
-    ArrayList<Dish> newUsers =new ArrayList<>();
-    DishAdapter adapter;
+    ArrayList<Trip> result = new ArrayList<>();
+    ArrayList<Trip> newUsers =new ArrayList<>();
+    TripAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_dish_rating);
+        setContentView(R.layout.activity_trip_rate);
 
         roomNum = getIntent().getStringExtra("roomNum");
 
-        ArrayList<Dish> dishes = new ArrayList<Dish>();
+        ArrayList<Trip> trips = new ArrayList<Trip>();
         // Create the adapter to convert the array to views
-        adapter = new DishAdapter(this, dishes);
+        adapter = new TripAdapter(this, trips);
         // Attach the adapter to a ListView
         final ListView listView = (ListView) findViewById(R.id.tripListView);
 
-        String type = "getDishData";
+        String type = "getTripData";
         // Add item to adapter
         listView.setAdapter(adapter);
 
-        genricAASync = new GenricAASync<Dish>(DishRatingActivity.this);
+        genricAASync = new GenricAASync<Trip>(TripRateActivity.this);
         genricAASync.execute(type, Locale.getDefault().getLanguage());
         registerReceiver(receiver =new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                result = (ArrayList<Dish>)intent.getSerializableExtra("result");
+                result = (ArrayList<Trip>)intent.getSerializableExtra("result");
                 Log.e("result",result.size()+"");
-                newUsers = new ArrayList<Dish>();
+                newUsers = new ArrayList<Trip>();
                 for(int i=0;i <result.size();i++)
                 {
                     newUsers.add(result.get(i));
@@ -60,16 +58,18 @@ public class DishRatingActivity extends Activity {
 
                 adapter.addAll(newUsers);
                 adapter.newDish = newUsers;
-                adapter.context =DishRatingActivity.this;
+                adapter.context =TripRateActivity.this;
                 adapter.roomNum = roomNum;
                 listView.setAdapter(adapter);
                 unregisterReceiver(receiver);
 
             }
-        }, new IntentFilter("dishIntent"));
+        }, new IntentFilter("TripIntent"));
 
     }
 
 
 }
+
+
 

@@ -137,7 +137,8 @@
     <string name="SEND_str">ENVIAR</string>
     <string name="Dish_Rating_str">Calificación de paquete preferida</string>
     <string name="RecommandeDish_str">Plato recomendado para ti</string>
-    <string name="Sorry_str">Lo sentimos, actualmente no tenemos un plato recomendado para ti.</string>
+    <string name="Sorry_str">Lo sentimos, todavía no tenemos una recomendación ..</string>
     <string name="RecommendedRestaurents">Restaurantes recomendados</string>
+    <string name="toursRating">Calificación de tours</string>
 
 </resources>

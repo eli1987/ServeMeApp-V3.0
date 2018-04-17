@@ -77,7 +77,12 @@
         <activity
             android:name=".DishRatingActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".RecommendedForYouActivity" />
+        <activity android:name=".RecommendedForYouActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".TripRateActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".RecommendedTrip"
+            android:screenOrientation="portrait" ></activity>
     </application>
 
 </manifest>

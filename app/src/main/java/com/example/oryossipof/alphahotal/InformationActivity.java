@@ -32,14 +32,17 @@ public class InformationActivity extends Activity {
     public  String MAPS_ADDRESS = "";
     private ListView mListView ;
     private Context context;
-    private int [] drawableName= {R.drawable.weather,R.drawable.maps,R.drawable.flight,R.drawable.shabb2,R.drawable.din,R.drawable.pre,R.drawable.pool,R.drawable.recommendedicon,R.drawable.restaurants2};
-    private String infoDesc[] = {"Weather","Maps","Flight Times","Shabbat Hours ","Dinning Hours","Activities","Pool hours","Recommended dish for you","Recommended restaurants for you"};
+    private int [] drawableName= {R.drawable.weather,R.drawable.maps,R.drawable.flight,R.drawable.shabb2,R.drawable.din,R.drawable.pre,R.drawable.pool,R.drawable.recommendedicon,R.drawable.restaurants2,R.drawable.trip};
+    private String infoDesc[] = {"Weather","Maps","Flight Times","Shabbat Hours ","Dinning Hours","Activities","Pool hours","Recommended dish for you","Recommended restaurants for you","Recommended trips"};
     private String info[];
     ArrayList<Dish> result = new ArrayList<>();
+    ArrayList<Trip> Tripresult = new ArrayList<>();
     ArrayList<Dish> newUsers =new ArrayList<>();
+    ArrayList<Trip> trips =new ArrayList<>();
     private GenricAASync<Dish> genricAASync;
+    private GenricAASync<Trip> genricAASync2;
     private BroadcastReceiver receiver;
-    private String dishName;
+    private String Name;
     private String roomNum;
 
 
@@ -51,7 +54,7 @@ public class InformationActivity extends Activity {
         setContentView(R.layout.activity_information);
 
 
-        info = new String[]{getResources().getString(R.string.Weather_str),getResources().getString(R.string.Maps_str),getResources().getString(R.string.Flight_Times_str),getResources().getString(R.string.Shabbat_Hours_str),getResources().getString(R.string.Dinning_Hours_str),getResources().getString(R.string.Activities_str),getResources().getString(R.string.Pool_hours_str),getResources().getString(R.string.RecommandeDish_str),getResources().getString(R.string.RecommendedRestaurents)};
+        info = new String[]{getResources().getString(R.string.Weather_str),getResources().getString(R.string.Maps_str),getResources().getString(R.string.Flight_Times_str),getResources().getString(R.string.Shabbat_Hours_str),getResources().getString(R.string.Dinning_Hours_str),getResources().getString(R.string.Activities_str),getResources().getString(R.string.Pool_hours_str),getResources().getString(R.string.RecommandeDish_str),getResources().getString(R.string.RecommendedRestaurents),getResources().getString(R.string.Recommend_tours_str)};
         mListView = (ListView) findViewById(R.id.lv_housekeeping);
         final CutomAdapter2 adapter = new CutomAdapter2();
         mListView.setAdapter(adapter);
@@ -166,8 +169,8 @@ public class InformationActivity extends Activity {
                                                 newUsers.add(result.get(i));
                                             }
 
-                                               dishName = newUsers.get(0).dishName;
-                                               intent = new Intent(Intent.ACTION_VIEW, Uri.parse(InformationUtils.restaurntsWebPage+dishName));
+                                                 Name = newUsers.get(0).dishName;
+                                               intent = new Intent(Intent.ACTION_VIEW, Uri.parse(InformationUtils.restaurntsWebPage+Name));
                                                 startActivity(intent);
                                     }
 
@@ -178,8 +181,16 @@ public class InformationActivity extends Activity {
 
                             break;
 
+                        case 9:
+                            intent = new Intent(InformationActivity.this, RecommendedTrip.class);
+                            intent.putExtra("roomNum",roomNum);
+                            startActivity(intent);
+                            break;
+
                     }
+
                 }
+
             });
             return view;
         }

@@ -112,14 +112,24 @@ public class GenricAASync <E> extends AsyncTask<String, Void,  ArrayList<E>> {
 
                 else if (typeToCheck == "getDishData")
                     service.add((E) new Dish(jo.getInt("id"), jo.getString("dishName"), jo.getString("picStr")));
+                else if (typeToCheck == "getTripData")
+                    service.add((E) new Trip(jo.getInt("id"), jo.getString("tripName"), jo.getString("picStr")));
+
                 else if (typeToCheck == "getRestaurants")
                     service.add((E) new Dish(jo.getInt("id"), jo.getString("dishName"), jo.getString("picStr")));
-                else {
+
+                else if (typeToCheck == "getRecommendedDish"){
                     if (jo.has("dishId")) {
                         service.add((E) new Dish(0, "0", ""));
                     } else
                         service.add((E) new Dish(jo.getInt("id"), jo.getString("dishName"), jo.getString("picStr")));
-
+                }
+                else if (typeToCheck  == "getRecommendedTrip")
+                {
+                    if (jo.has("tripId")) {
+                        service.add((E) new Trip(0, "0", ""));
+                    } else
+                        service.add((E) new Trip(jo.getInt("id"), jo.getString("tripName"), jo.getString("picStr")));
                 }
             }
 
@@ -157,8 +167,21 @@ public class GenricAASync <E> extends AsyncTask<String, Void,  ArrayList<E>> {
             context.sendBroadcast(intent1);
 
         }
+        else if (typeToCheck == "getTripData") {
+            Intent intent1 = new Intent("TripIntent");
+            intent1.putExtra("result", service);
+            context.sendBroadcast(intent1);
+
+        }
        else if (typeToCheck == "getRecommendedDish") {
             Intent intent1 = new Intent("getRecommendedDish");
+            intent1.putExtra("result", service);
+            context.sendBroadcast(intent1);
+
+        }
+
+        else if (typeToCheck == "getRecommendedTrip") {
+            Intent intent1 = new Intent("getRecommendedTrip");
             intent1.putExtra("result", service);
             context.sendBroadcast(intent1);
 
@@ -184,7 +207,6 @@ public class GenricAASync <E> extends AsyncTask<String, Void,  ArrayList<E>> {
             context.sendBroadcast(intent1);
 
         }
-
 
     }
 }
