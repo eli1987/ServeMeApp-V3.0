@@ -136,8 +136,8 @@ public class BookTripActivity extends Activity {
                 des = edittext.getText().toString() + " " + destList[spinner.getSelectedItemPosition()] + ", " + pass + " Passengers";
                 bg.execute("insertNewRequest",roomNum,department,"Order Trip",des);
                 progress.setMessage(getResources().getString(R.string.Delivring_request_str));
-                progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-                progress.setIndeterminate(false);
+                progress.setProgressStyle(R.style.AppTheme_Dark_Dialog);
+                progress.setIndeterminate(true);
                 progress.setCancelable(false);
                 progress.setCanceledOnTouchOutside(false);
                 progress.setProgress(0);

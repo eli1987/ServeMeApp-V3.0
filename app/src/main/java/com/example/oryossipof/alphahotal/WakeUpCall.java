@@ -153,8 +153,8 @@ public class WakeUpCall extends Activity {
                 des = edittext.getText().toString() + " "+ time ;
                 bg.execute("insertNewRequest",roomNum,department,"Wake up call",des);
                 progress.setMessage(getResources().getString(R.string.Delivring_request_str));
-                progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-                progress.setIndeterminate(false);
+                progress.setProgressStyle(R.style.AppTheme_Dark_Dialog);
+                progress.setIndeterminate(true);
                 progress.setCancelable(false);
                 progress.setCanceledOnTouchOutside(false);
                 progress.setProgress(0);
@@ -165,7 +165,7 @@ public class WakeUpCall extends Activity {
                     public void onReceive(Context context, Intent intent) {
                         String result = (String)intent.getExtras().getString("result");
 
-                        progress.setProgress(100);
+
                         progress.dismiss();
                         //alertDialog.show();
                         if(result.equals("New requests accepted successfully")) {

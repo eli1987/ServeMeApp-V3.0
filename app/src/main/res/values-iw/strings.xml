@@ -140,4 +140,5 @@
     <string name="Sorry_str">מצטערים , לעת עתה אין לנו המלצה בשבילך!</string>
     <string name="RecommendedRestaurents">מסעדות מומלצות עבורך</string>
     <string name="toursRating">דירוג טיולים</string>
+    <string name="Authenticating">אימות..</string>
 </resources>

@@ -139,6 +139,7 @@
     <string name="Sorry_str">Entschuldigung, wir haben noch keine Empfehlung ..</string>
     <string name="RecommendedRestaurents">Empfohlene Restaurants</string>
     <string name="toursRating">Touren Bewertung</string>
+    <string name="Authenticating">Authentifizieren ...</string>
 
 
 </resources>

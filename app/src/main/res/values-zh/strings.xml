@@ -140,5 +140,6 @@
     <string name="Sorry_str">对不起，我们还没有推荐</string>
     <string name="RecommendedRestaurents">推荐的餐厅</string>
     <string name="toursRating">"旅游评级 "</string>
+    <string name="Authenticating">验证...</string>
 
 </resources>

@@ -91,11 +91,10 @@ public class MaintenanceActivity extends Activity {
                             BackgroundWorker bg = new BackgroundWorker(MaintenanceActivity.this);
                             bg.execute("insertNewRequest", roomNum, department, maintenanceDesc[index], "");
                             progress.setMessage(getResources().getString(R.string.Delivring_request_str));
-                            progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-                            progress.setIndeterminate(false);
+                            progress.setProgressStyle(R.style.AppTheme_Dark_Dialog);
+                            progress.setIndeterminate(true);
                             progress.setCancelable(false);
                             progress.setCanceledOnTouchOutside(false);
-                            progress.setProgress(0);
                             progress.show();
 
                             registerReceiver(receiver = new BroadcastReceiver() {
@@ -104,7 +103,6 @@ public class MaintenanceActivity extends Activity {
                                     String result = (String) intent.getExtras().getString("result");
 
 
-                                    progress.setProgress(100);
                                     progress.dismiss();
 
                                     if (result.equals("New requests accepted successfully")) {

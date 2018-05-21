@@ -89,8 +89,8 @@ public class EmployeeAdapter  extends ArrayAdapter<Employee> {
                         int index = Integer.parseInt(btTag.toString());
                         bg.execute("RateEmployee", newUsers.get(index).empId ,rate, Locale.getDefault().getLanguage(),roomNum);
                         progress= new ProgressDialog(context);
-                        progress.setMessage(context.getResources().getString(R.string.Delivring_request_str));
-                        progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                progress.setProgressStyle(R.style.AppTheme_Dark_Dialog);
+                progress.setIndeterminate(true);
                         progress.setIndeterminate(false);
                         progress.setCancelable(false);
                         progress.setCanceledOnTouchOutside(false);
@@ -102,7 +102,6 @@ public class EmployeeAdapter  extends ArrayAdapter<Employee> {
                             @Override
                             public void onReceive(Context context, Intent intent) {
                                 String result = (String) intent.getExtras().getString("result");
-                                progress.setProgress(100);
                                 progress.dismiss();
                                 if(result.equals("New requests accepted successfully")) {
                                     Toast.makeText(context, context.getResources().getString(R.string.New_Rate_accepted_successfully_str), Toast.LENGTH_SHORT).show();

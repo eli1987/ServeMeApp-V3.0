@@ -42,11 +42,10 @@ public class RecommendedTrip extends Activity {
         genricAASync = new GenricAASync<Trip>(RecommendedTrip.this);
         genricAASync.execute(type,roomNum , Locale.getDefault().getLanguage());
         progress.setMessage(getResources().getString(R.string.Delivring_request_str));
-        progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        progress.setIndeterminate(false);
+        progress.setProgressStyle(R.style.AppTheme_Dark_Dialog);
+        progress.setIndeterminate(true);
         progress.setCancelable(false);
         progress.setCanceledOnTouchOutside(false);
-        progress.setProgress(0);
         progress.show();
 
         registerReceiver(receiver =new BroadcastReceiver() {
@@ -68,7 +67,7 @@ public class RecommendedTrip extends Activity {
                         newTrips.add(result.get(i));
                     }
                     tripName.setText(newTrips.get(0).tripName);
-                    Picasso.with(context).load("http://servemeapp.000webhostapp.com/"+newTrips.get(0).getTripName()).fit().into(ImageStr);
+                    Picasso.with(context).load("http://servemeapp.000webhostapp.com/"+newTrips.get(0).getTripImg()).fit().into(ImageStr);
                     progress.dismiss();
                 }
 

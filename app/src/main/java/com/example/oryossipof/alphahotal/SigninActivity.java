@@ -7,12 +7,14 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class SigninActivity extends Activity {
     private Button loginBT;
@@ -38,19 +40,22 @@ public class SigninActivity extends Activity {
             @Override
             public void onClick(View view) {
 
-
+                if(!CheckInternet(SigninActivity.this))
+                {
+                    Toast.makeText(SigninActivity.this,getResources().getString(R.string.Connection_error_try_again_later_str),Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 if (!validate())
                     return;
                 String type = "login";
                 backgroundWorker = new BackgroundWorker(SigninActivity.this);
                 backgroundWorker.execute(type,roomNum.getText().toString(),password.getText().toString());
-                progress.setMessage(getResources().getString(R.string.Delivring_request_str));
-                progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-                progress.setIndeterminate(false);
+                progress.setMessage(getResources().getString(R.string.Authenticating));
+                progress.setProgressStyle(R.style.AppTheme_Dark_Dialog);
+                progress.setIndeterminate(true);
                 progress.setCancelable(false);
                 progress.setCanceledOnTouchOutside(false);
-                progress.setProgress(0);
                 progress.show();
                 loginBT.setEnabled(false);
 
@@ -62,6 +67,7 @@ public class SigninActivity extends Activity {
                         if(result.equals("login success")) {
                             //////////////////////////////////////////
                             // need to check if the user has done questionnaires before/
+
                             String type = "didQuestionnairesBefore";
                             backgroundWorker2 = new BackgroundWorker(SigninActivity.this);
                             backgroundWorker2.execute(type, roomNum.getText().toString());
@@ -154,6 +160,15 @@ public class SigninActivity extends Activity {
         }
 
         return valid;
+    }
+
+    public static boolean CheckInternet(Context context)
+    {
+        ConnectivityManager connec = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        android.net.NetworkInfo wifi = connec.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        android.net.NetworkInfo mobile = connec.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+
+        return wifi.isConnected() || mobile.isConnected();
     }
 
 }

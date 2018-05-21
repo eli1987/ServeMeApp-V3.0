@@ -94,8 +94,8 @@ public class RoomServiceActivity extends Activity {
                             BackgroundWorker bg = new BackgroundWorker(RoomServiceActivity.this);
                             bg.execute("insertNewRequest", roomNum, department, foodmenuDesc[index], "");
                             progress.setMessage(getResources().getString(R.string.Delivring_request_str));
-                            progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-                            progress.setIndeterminate(false);
+                            progress.setProgressStyle(R.style.AppTheme_Dark_Dialog);
+                            progress.setIndeterminate(true);
                             progress.setCancelable(false);
                             progress.setCanceledOnTouchOutside(false);
                             progress.setProgress(0);
@@ -106,7 +106,6 @@ public class RoomServiceActivity extends Activity {
                                 @Override
                                 public void onReceive(Context context, Intent intent) {
                                     String result = (String) intent.getExtras().getString("result");
-                                    progress.setProgress(100);
                                     progress.dismiss();
                                     if(result.equals("New requests accepted successfully")) {
                                         Toast.makeText(RoomServiceActivity.this, getResources().getString(R.string.New_request_accepted_successfully_str), Toast.LENGTH_SHORT).show();

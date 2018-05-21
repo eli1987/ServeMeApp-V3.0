@@ -141,4 +141,5 @@
     <string name="Sorry_str">Sorry , we do not have recommendation yet..</string>
     <string name="RecommendedRestaurents">Recommended restaurants</string>
     <string name="toursRating">Tours rating</string>
+    <string name="Authenticating">Authenticating...</string>
 </resources>

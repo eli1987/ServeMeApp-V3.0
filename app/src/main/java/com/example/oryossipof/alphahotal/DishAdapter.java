@@ -78,8 +78,8 @@ public class DishAdapter extends ArrayAdapter<Dish> {
                 bg.execute("rateDish", roomNum,newDish.get(index).dishId+"");
                 progress= new ProgressDialog(context);
                 progress.setMessage(context.getResources().getString(R.string.Delivring_request_str));
-                progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-                progress.setIndeterminate(false);
+                progress.setProgressStyle(R.style.AppTheme_Dark_Dialog);
+                progress.setIndeterminate(true);
                 progress.setCancelable(false);
                 progress.setCanceledOnTouchOutside(false);
                 progress.setProgress(0);

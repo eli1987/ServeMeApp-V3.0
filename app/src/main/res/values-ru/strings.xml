@@ -142,4 +142,5 @@
     <string name="Sorry_str">Извините, у нас пока нет рекомендаций ..</string>
     <string name="RecommendedRestaurents">Рекомендуемые рестораны</string>
     <string name="toursRating">рейтинг туров</string>
+    <string name="Authenticating">Проверка подлинности ...</string>
 </resources>

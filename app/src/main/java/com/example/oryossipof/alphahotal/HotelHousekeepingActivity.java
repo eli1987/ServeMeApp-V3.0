@@ -81,11 +81,11 @@ public class HotelHousekeepingActivity extends Activity {
                     BackgroundWorker bg = new BackgroundWorker(HotelHousekeepingActivity.this);
                     bg.execute("insertNewRequest",roomNum,department,descriptionDes[index],"");
                     progress.setMessage(getResources().getString(R.string.Delivring_request_str));
-                    progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-                    progress.setIndeterminate(false);
+                    progress.setProgressStyle(R.style.AppTheme_Dark_Dialog);
+                    progress.setIndeterminate(true);
                     progress.setCancelable(false);
                     progress.setCanceledOnTouchOutside(false);
-                    progress.setProgress(0);
+
                     progress.show();
 
                     registerReceiver(receiver =new BroadcastReceiver() {
@@ -93,7 +93,7 @@ public class HotelHousekeepingActivity extends Activity {
                         public void onReceive(Context context, Intent intent) {
                             String result = (String)intent.getExtras().getString("result");
 
-                            progress.setProgress(100);
+
                             progress.dismiss();
                             if(result.equals("New requests accepted successfully")) {
                                 Toast.makeText(HotelHousekeepingActivity.this, getResources().getString(R.string.New_request_accepted_successfully_str), Toast.LENGTH_SHORT).show();

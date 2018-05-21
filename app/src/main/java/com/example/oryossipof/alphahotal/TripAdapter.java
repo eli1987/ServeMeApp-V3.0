@@ -76,18 +76,17 @@ public class TripAdapter extends ArrayAdapter<Trip> {
                 bg.execute("rateTrip", roomNum,newDish.get(index).tripId+"");
                 progress= new ProgressDialog(context);
                 progress.setMessage(context.getResources().getString(R.string.Delivring_request_str));
-                progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-                progress.setIndeterminate(false);
+                progress.setProgressStyle(R.style.AppTheme_Dark_Dialog);
+                progress.setIndeterminate(true);
                 progress.setCancelable(false);
                 progress.setCanceledOnTouchOutside(false);
-                progress.setProgress(0);
+
                 progress.show();
 
                 context.registerReceiver(receiver2 = new BroadcastReceiver() {
                     @Override
                     public void onReceive(Context context, Intent intent) {
                         String result = (String) intent.getExtras().getString("result");
-                        progress.setProgress(100);
                         progress.dismiss();
                         if(result.equals("Record updated successfully")) {
                             Toast.makeText(context, context.getResources().getString(R.string.New_Rate_accepted_successfully_str), Toast.LENGTH_SHORT).show();

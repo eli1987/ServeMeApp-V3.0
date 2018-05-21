@@ -80,11 +80,11 @@ public class FeedbackActivity extends Activity {
                     progress = new ProgressDialog(FeedbackActivity.this);
 
                     progress.setMessage(context.getResources().getString(R.string.Delivring_request_str));
-                    progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-                    progress.setIndeterminate(false);
+                        progress.setProgressStyle(R.style.AppTheme_Dark_Dialog);
+                        progress.setIndeterminate(true);
                     progress.setCancelable(false);
                     progress.setCanceledOnTouchOutside(false);
-                    progress.setProgress(0);
+
                     progress.show();
 
 

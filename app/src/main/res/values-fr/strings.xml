@@ -140,6 +140,7 @@
     <string name="Sorry_str">Désolé, nous n\'avons pas encore de recommandation ..</string>
     <string name="RecommendedRestaurents">Restaurants recommandés</string>
     <string name="toursRating">évaluation des visites</string>
+    <string name="Authenticating">Authentification ...</string>
 
 
 </resources>

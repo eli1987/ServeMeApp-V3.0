@@ -92,11 +92,10 @@ public class questionnairesActivity extends Activity {
                     String answers[] = getAnswers();
                     backgroundWorker.execute(type,answers[0],answers[1],answers[2],answers[3],answers[4],answers[5],answers[6],answers[7],answers[8],roomNum);
                     progress.setMessage(getResources().getString(R.string.Delivring_request_str));
-                    progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-                    progress.setIndeterminate(false);
+                    progress.setProgressStyle(R.style.AppTheme_Dark_Dialog);
+                    progress.setIndeterminate(true);
                     progress.setCancelable(false);
                     progress.setCanceledOnTouchOutside(false);
-                    progress.setProgress(0);
                     progress.show();
 
 

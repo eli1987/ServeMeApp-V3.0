@@ -90,6 +90,6 @@
         android:id="@+id/ordertrip_button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Book_a_Texi_str" />
+        android:text="@string/Book_a_Trip_str" />
 
 </LinearLayout>
